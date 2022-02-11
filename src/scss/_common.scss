@@ -1,0 +1,36 @@
+.header-container {
+  background-color: $main-bg-color;
+  height: 200px;
+  .top {
+    height: 150px;
+    .logo {
+      img {
+        height: 150px;
+        width: 150px;
+      }
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      input {
+        font-size: 17px;
+        height: 40px;
+        width: 700px;
+        border-top-left-radius: 2px;
+        border-bottom-left-radius: 2px;
+        border: none;
+        padding-left: 5px;
+      }
+      .search-btn {
+        height: 40px;
+        width: 50px;
+        border: none;
+        border-left: 1px solid $border-gray-color;
+        background-color: #7b2cbf;
+        i {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
