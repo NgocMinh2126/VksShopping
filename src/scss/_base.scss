@@ -3,7 +3,14 @@
   padding: 0;
   text-decoration: none;
   box-sizing: border-box;
+  font-family: Roboto, sans-serif;
 }
 .flex {
   display: flex;
+}
+.borderleft {
+  border-left: 1px solid $border-gray-color;
+}
+.margintop10px {
+  margin-top: 10px;
 }

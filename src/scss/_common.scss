@@ -1,36 +1,164 @@
 .header-container {
   background-color: $main-bg-color;
-  height: 200px;
+  height: 150px;
   .top {
-    height: 150px;
+    height: 100px;
+    justify-content: space-around;
+    align-items: center;
     .logo {
+      height: 100px;
       img {
-        height: 150px;
-        width: 150px;
+        height: 100px;
+        width: 200px;
       }
     }
-    .search-bar {
-      display: flex;
+    .category-btn-container {
       align-items: center;
+      .category-btn {
+        color: $text-color;
+        font-size: 20px;
+        width: 50px;
+        height: 40px;
+        border: 1px solid $border-gray-color;
+        align-items: center;
+        border-radius: 3px;
+        justify-content: space-around;
+        background-color: none;
+      }
+    }
+    .category-btn:hover {
+      background-color: $hover-color;
+      color: #fff;
+    }
+    .search-bar {
+      margin-left: 50px;
+      display: flex;
       input {
         font-size: 17px;
         height: 40px;
         width: 700px;
-        border-top-left-radius: 2px;
-        border-bottom-left-radius: 2px;
+        border-top-left-radius: 3px;
+        border-bottom-left-radius: 3px;
         border: none;
         padding-left: 5px;
+        outline: none;
       }
       .search-btn {
         height: 40px;
         width: 50px;
         border: none;
         border-left: 1px solid $border-gray-color;
-        background-color: #7b2cbf;
-        i {
-          font-size: 15px;
+        background-color: $btn-color;
+        font-size: 20px;
+        color: white;
+        border-top-right-radius: 3px;
+        border-bottom-right-radius: 3px;
+      }
+      .search-btn:hover {
+        background-color: $hover-color;
+      }
+    }
+    .cart {
+      margin-left: 30px;
+      font-size: 20px;
+      align-items: center;
+      .cart-right {
+        margin-left: 7px;
+        .number-of-product {
+          background-color: #ff424e;
+          color: #fff;
+          font-size: 12px;
+          width: 22px;
+          line-height: 22px;
+          border-radius: 100%;
+          text-align: center;
+        }
+        .title {
+          margin-top: 2px;
+          font-size: 16px;
         }
       }
     }
+    .cart:hover {
+      color: $hover-color;
+    }
+  }
+  .nav-bar {
+    border-top: 1px solid $border-gray-color;
+    align-items: center;
+    height: 50px;
+    justify-content: space-between;
+    .nav-btn {
+      color: $text-color;
+      font-size: 19px;
+      margin-left: 20px;
+      font-family: "Pacifico", cursive;
+    }
+    .nav-btn:hover {
+      color: $hover-color;
+    }
+    .nav-bar-left {
+      margin-left: 50px;
+    }
+    .nav-bar-right {
+      margin-right: 80px;
+      .nav-btn {
+        padding-left: 20px;
+      }
+    }
+  }
+}
+.footer-container {
+  background-color: $dark-bg-color;
+  .footer-left {
+    img {
+      width: 300px;
+      height: 100px;
+      margin-left: 20px;
+    }
+    .link-list {
+      .link-btn {
+        padding-left: 10px;
+        color: #fff;
+        margin-left: 10px;
+        font-size: 20px;
+        font-family: "Pacifico", cursive;
+      }
+      .link-btn:hover {
+        color: $main-bg-color;
+      }
+    }
+  }
+  .footer-right {
+    margin-left: 20px;
+    padding-top: 10px;
+    .title {
+      color: #fff;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .info {
+      color: $text-color-2;
+      span {
+        font-size: 14px;
+        color: #fff;
+      }
+    }
+    .contact {
+      margin-left: 10px;
+    }
+    .about-us {
+      margin-left: 80px;
+      .aboutus-btn {
+        color: #fff;
+        display: block;
+      }
+    }
+  }
+  .copyright {
+    margin-top: 20px;
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
   }
 }
