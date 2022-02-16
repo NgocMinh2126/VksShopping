@@ -14,6 +14,13 @@
 .margintop10px {
   margin-top: 10px; }
 
+.hide-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none; }
+
+.hide-scroll::-webkit-scrollbar {
+  display: none; }
+
 .header-container {
   background-color: #efe9f5;
   height: 150px; }

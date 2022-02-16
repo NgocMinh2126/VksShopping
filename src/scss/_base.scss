@@ -14,3 +14,10 @@
 .margintop10px {
   margin-top: 10px;
 }
+.hide-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
