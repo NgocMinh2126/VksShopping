@@ -125,7 +125,7 @@
       font-size: 18px;
       font-weight: 600; }
     .footer-container .footer-right .info {
-      color: #c8c5ca; }
+      color: #757575; }
       .footer-container .footer-right .info span {
         font-size: 14px;
         color: #fff; }
@@ -141,3 +141,50 @@
     font-size: 13px;
     text-align: center;
     color: #fff; }
+
+.categorycard-container {
+  width: 100%;
+  padding: 10px; }
+  .categorycard-container img {
+    width: 30px; }
+  .categorycard-container .title {
+    margin-left: 10px;
+    font-size: 18px;
+    align-items: center;
+    display: flex;
+    color: #757575; }
+
+.categorycard-container:hover {
+  box-shadow: 0 0 5px 0 #c3c3c3; }
+
+.category-container {
+  margin: 5px;
+  height: 200px;
+  width: 350px;
+  border-radius: 3px;
+  border: 1px solid #c3c3c3;
+  overflow: scroll; }
+
+.banners {
+  overflow: hidden; }
+  .banners img {
+    width: 500px !important;
+    height: 200px; }
+  .banners .slick-dots {
+    bottom: 10px;
+    z-index: 3; }
+    .banners .slick-dots li button:before {
+      font-size: 10px;
+      color: white; }
+  .banners .slick-prev,
+  .banners .slick-next {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.5em;
+    width: 30px;
+    height: 40px;
+    z-index: 3;
+    border-radius: 4px; }
+  .banners .slick-next {
+    right: 0px; }
+  .banners .slick-prev {
+    left: 0px; }

@@ -18,7 +18,7 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          <div className="footer-right borderleft flex">
+          <div className="footer-right flex">
             <div className="contact ">
               <div className="title">Liên hệ</div>
               <div className="info margintop10px">

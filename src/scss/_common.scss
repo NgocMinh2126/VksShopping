@@ -162,3 +162,28 @@
     color: #fff;
   }
 }
+.categorycard-container {
+  width: 100%;
+  padding: 10px;
+  img {
+    width: 30px;
+  }
+  .title {
+    margin-left: 10px;
+    font-size: 18px;
+    align-items: center;
+    display: flex;
+    color: $text-color-2;
+  }
+}
+.categorycard-container:hover {
+  box-shadow: 0 0 5px 0 $border-gray-color;
+}
+.category-container {
+  margin: 5px;
+  height: 200px;
+  width: 350px;
+  border-radius: 3px;
+  border: 1px solid $border-gray-color;
+  overflow: scroll;
+}
