@@ -1,21 +1,24 @@
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { categoryActions } from "../actions/categoryActions";
 import Categorycard from "./Categorycard";
 
 export default function Categories() {
+  const dispatch = useDispatch();
 
-  const [cateInfo, setCateInfo] = useState(null);
+  const listCate = useSelector(store => store.category.listCate);
 
   useEffect(() => {
-    fetch("https://immense-shelf-19793.herokuapp.com/api/category")
-      .then((res) => res.json())
-      .then((json) => {
-        setCateInfo(json.data);
-        console.log(json.data);
-      })
-  }, []);
-  return (!cateInfo ? <div></div> :
+    if (listCate.status === "LOADING") {
+      dispatch(categoryActions.getCategories());
+    } else {
+      console.log(listCate);
+    }
+  })
+
+  return (!listCate.data ? <div></div> :
     <div className="category-container hide-scroll">
-      {cateInfo.map((v, i) => {
+      {listCate.data.map((v, i) => {
         return (<Categorycard key={v._id} image={v.image} name={v.name}></Categorycard>);
       })}
     </div>
