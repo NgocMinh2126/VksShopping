@@ -1,0 +1,15 @@
+.product-container {
+  color: $text-color-2;
+  font-size: 20px;
+  .category {
+    background-color: #fff;
+    margin-top: 20px;
+    .name {
+      padding-left: 15px;
+      border-radius: 3px;
+    }
+  }
+  .product {
+    margin-top: 20px;
+  }
+}

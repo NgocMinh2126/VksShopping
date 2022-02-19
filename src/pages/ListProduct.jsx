@@ -11,10 +11,10 @@ export default function ListProduct(props) {
       dispacth(productActions.getProduct());
     } else console.log(listProduct.data);
   });
-  function createProductCard() {
-    return listProduct.data.map((v, i) => (
+  function createProductCard(data) {
+    return data.map((v, i) => (
       <ProductCard
-        key={i}
+        key={v._id}
         name={v.name}
         image={v.images}
         discount={v.discount}
@@ -23,8 +23,7 @@ export default function ListProduct(props) {
       />
     ));
   }
-  return (
-    !listProduct ? <div></div> :
-      <div className="flex listProduct">{createProductCard()}</div>
+  return (!listProduct.data ? <div></div> :
+    <div className="flex listProduct">{createProductCard(listProduct.data)}</div>
   );
 }

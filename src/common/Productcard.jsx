@@ -1,8 +1,6 @@
 export default function ProductCard(props) {
   let { name, price, sold, discount, image } = props;
 
-  //let star_arr = Array.from(new Array(danhgia), () => 0);
-  //let nonstar_arr = Array.from(new Array(5 - danhgia), () => 0);
   function price_break(price) {
     price = price.toString();
     let giatien = "";
@@ -31,14 +29,6 @@ export default function ProductCard(props) {
       </div>
       <div className="name">{name}</div>
       <div className="row">
-        {/* <div className="star">
-          {star_arr.map((v, i) => {
-            return <i className="fas fa-star yellow_star" key={i}></i>;
-          })}
-          {nonstar_arr.map((v, i) => {
-            return <i className="fas fa-star" key={5 - i}></i>;
-          })}
-        </div> */}
         <div className="sold">Đã bán {sold}</div>
       </div>
       <div className="row">
