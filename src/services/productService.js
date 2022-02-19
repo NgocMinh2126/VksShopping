@@ -1,12 +1,12 @@
 import { constant } from "../constants";
-
-function getCategories() {
+function getProduct() {
   const requestObj = {
     method: "GET",
   };
-  return fetch(constant.API_URL + "/category", requestObj)
+  return fetch(constant.API_URL + "/product", requestObj)
     .then((res) => res.json())
     .then((json) => {
+      console.log(json);
       return json;
     })
     .catch((err) => {
@@ -14,6 +14,6 @@ function getCategories() {
       return {};
     });
 }
-export const categoryService = {
-  getCategories,
+export const productService = {
+  getProduct,
 };

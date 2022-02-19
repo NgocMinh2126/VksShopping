@@ -1,8 +1,9 @@
+import { constant } from "../constants";
 import { categoryService } from "../services/categoryService";
 function getCategories() {
   return (dispatch) => {
     categoryService.getCategories().then((res) => {
-      if (res.status === "SUCCESS") {
+      if (res.status === constant.SUCCESS) {
         dispatch(success(res.data));
       } else dispatch(failure(res.code, res.msg));
     });

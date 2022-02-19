@@ -1,3 +1,5 @@
+import { constant } from "../constants";
+
 const initialState = {
   listCate: {
     status: "LOADING",
@@ -5,7 +7,7 @@ const initialState = {
 };
 export function category(state = initialState, action) {
   switch (action.type) {
-    case "GET_CATEGORY_SUCCESS": {
+    case constant.GET_CATEGORY_SUCCESS: {
       return {
         ...state,
         listCate: {
@@ -14,7 +16,7 @@ export function category(state = initialState, action) {
         },
       };
     }
-    case "GET_CATEGORY_FAILURE": {
+    case constant.GET_CATEGORY_FAILURE: {
       return {
         ...state,
         listCate: {
