@@ -2,7 +2,7 @@ import React from "react"
 import Header from "../../common/Header"
 import Footer from "../../common/Footer"
 import Categories from "../../common/Categories"
-import ListProduct from "../ListProduct";
+import ListProducts from "./child/ListProduct";
 export default function ProductPage() {
   return (
     <React.Fragment>
@@ -17,9 +17,7 @@ export default function ProductPage() {
               <Categories ></Categories>
             </div>
           </div>
-          <div className="product">
-            <ListProduct ></ListProduct>
-          </div>
+          <ListProducts ></ListProducts>
         </div>
       </div>
       <Footer></Footer>

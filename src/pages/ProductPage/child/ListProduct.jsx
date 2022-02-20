@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { constant } from "../constants";
-import { productActions } from "../actions/productActions";
-import ProductCard from "../common/Productcard";
-export default function ListProduct(props) {
+import { constant } from "../../../constants";
+import { productActions } from "../../../actions/productActions";
+import ProductCard from "../../../common/Productcard";
+export default function ListProducts(props) {
   const dispacth = useDispatch();
   const listProduct = useSelector((store) => store.product.listProduct);
   useEffect(() => {
@@ -24,6 +24,6 @@ export default function ListProduct(props) {
     ));
   }
   return (!listProduct.data ? <div></div> :
-    <div className="flex listProduct">{createProductCard(listProduct.data)}</div>
+    <div className="flex list-product">{createProductCard(listProduct.data)}</div>
   );
 }
