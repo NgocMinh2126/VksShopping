@@ -7,8 +7,8 @@ export default function ProductPage() {
   return (
     <React.Fragment>
       <Header></Header>
-      <div className="body">
-        <div className="flex product-container page ">
+      <div className=" flex page">
+        <div className="flex product-container ">
           <div className="category hide-scroll">
             <div className="name">
               Danh mục sản phẩm

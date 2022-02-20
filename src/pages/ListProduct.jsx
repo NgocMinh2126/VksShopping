@@ -17,8 +17,8 @@ export default function ListProduct(props) {
         key={v._id}
         name={v.name}
         image={v.images}
-        discount={v.discount}
-        price={v.before_discount_price}
+        pricebefore={v.before_discount_price}
+        priceafter={v.after_discount_price}
         sold={v.sold}
       />
     ));

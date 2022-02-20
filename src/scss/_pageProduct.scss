@@ -4,12 +4,16 @@
   .category {
     background-color: #fff;
     margin-top: 20px;
+    height: fit-content;
     .name {
-      padding-left: 15px;
+      padding: 10px;
       border-radius: 3px;
+      border: 1px solid $border-gray-color;
+      border-bottom: none;
     }
   }
   .product {
+    margin-left: 10px;
     margin-top: 20px;
   }
 }

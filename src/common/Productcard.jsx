@@ -1,5 +1,5 @@
 export default function ProductCard(props) {
-  let { name, price, sold, discount, image } = props;
+  let { name, pricebefore, sold, priceafter, image } = props;
 
   function price_break(price) {
     price = price.toString();
@@ -20,6 +20,13 @@ export default function ProductCard(props) {
     }
     return price;
   }
+  function discount(pricebefore, priceafter) {
+    let kq = 0;
+    if (pricebefore !== priceafter) {
+      kq = Math.round((priceafter * 100) / pricebefore);
+    }
+    return kq;
+  }
   return (
     <div className="product-card">
       <div className="image">
@@ -32,16 +39,16 @@ export default function ProductCard(props) {
         <div className="sold">Đã bán {sold}</div>
       </div>
       <div className="row">
-        {discount > 0 ? (
+        {discount(pricebefore, priceafter) > 0 ? (
           <div className="price_red">
-            {price_break(priceafterdiscount(price, discount))}đ
+            {price_break(priceafter)}đ
           </div>
         ) : (
           <div className="price">
-            {price_break(priceafterdiscount(price, discount))}đ
+            {price_break(pricebefore)}đ
           </div>
         )}
-        {discount !== 0 && <div className="discount">{discount}%</div>}
+        {discount(pricebefore, priceafter) > 0 && <div className="discount">{discount(pricebefore, priceafter)}%</div>}
       </div>
     </div>
   );

@@ -180,7 +180,6 @@
   box-shadow: 0 0 5px 0 $border-gray-color;
 }
 .category-container {
-  margin: 5px;
   width: 300px;
   border-radius: 3px;
   border: 1px solid $border-gray-color;
@@ -189,12 +188,12 @@
 .product-card {
   margin-left: 10px;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-bottom: 20px;
   background-color: white;
   cursor: pointer;
   width: 220px;
-  border-radius: 0.2em;
-  padding: 2px;
+  border-radius: 3px;
+  padding: 5px;
   .image {
     .img-container {
       margin-left: auto;
