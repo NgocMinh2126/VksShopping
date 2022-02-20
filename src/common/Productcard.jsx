@@ -23,7 +23,7 @@ export default function ProductCard(props) {
   function discount(pricebefore, priceafter) {
     let kq = 0;
     if (pricebefore !== priceafter) {
-      kq = Math.round((priceafter * 100) / pricebefore);
+      kq = Math.round(((pricebefore - priceafter) / pricebefore) * 100);
     }
     return kq;
   }
