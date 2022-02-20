@@ -7,17 +7,19 @@ export default function ProductPage() {
   return (
     <React.Fragment>
       <Header></Header>
-      <div className=" flex page">
-        <div className="flex product-container ">
-          <div className="category hide-scroll">
-            <div className="name">
-              Danh mục sản phẩm
+      <div className="bg">
+        <div className=" flex page">
+          <div className="flex product-container ">
+            <div className="category hide-scroll">
+              <div className="name">
+                Danh mục sản phẩm
+              </div>
+              <div>
+                <Categories ></Categories>
+              </div>
             </div>
-            <div>
-              <Categories ></Categories>
-            </div>
+            <ListProducts ></ListProducts>
           </div>
-          <ListProducts ></ListProducts>
         </div>
       </div>
       <Footer></Footer>
