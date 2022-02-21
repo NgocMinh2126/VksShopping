@@ -66,6 +66,15 @@ export default function MainInfo(props) {
               <div className="price-after-discount no-discount">{price_break(pro.priceafter)} ₫</div>
             </div>
           )}
+          <div className="cart-action">
+            Số lượng <br />
+            <div className="flex">
+              <button>-</button>
+              <input type="number" value="1" />
+              <button>+</button>
+            </div>
+            <button id="add-cart-btn">Thêm vào giỏ hàng</button>
+          </div>
         </div>
       </div>
     </div>

@@ -3,7 +3,7 @@
   background-color: #fff;
   border-radius: 5px;
   .image {
-    width: 40%;
+    width: 35%;
     padding: 10px;
     border: 1px black solid;
     .img-container {
@@ -15,7 +15,7 @@
     }
   }
   .info {
-    padding: 10px;
+    padding: 0.5em;
     border: 1px black solid;
     width: 40%;
     .name {
@@ -68,6 +68,27 @@
           border: 1px solid rgb(255, 66, 78);
           padding: 2px;
           margin-left: 15px;
+        }
+      }
+    }
+    .cart-action {
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 18px;
+      border-top: 1px solid $border-color-2;
+      .flex {
+        padding-top: 10px;
+        button {
+          padding: 8px 15px 8px 15px;
+          border: 1px solid $border-color-2;
+          font-size: 18px;
+        }
+        input {
+          width: 4em;
+          text-align: center;
+          outline: none;
+          font-size: 20px;
+          border: 1px solid $border-color-2;
         }
       }
     }
