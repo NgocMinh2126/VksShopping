@@ -6,8 +6,8 @@ export default function MainInfo(props) {
     danhgia: 4,
     luotdanhgia: 2,
     sold: 100,
-    price_after_discount: 19800000,
-    price_before_discount: 1980000,
+    priceafter: 18690000,
+    pricebefore: 18890000,
   }
   let star_arr = Array.from(new Array(pro.danhgia), () => 0);
   let nonstar_arr = Array.from(new Array(5 - pro.danhgia), () => 0);
@@ -32,32 +32,40 @@ export default function MainInfo(props) {
     return kq;
   }
   return (
-    <div className="detailinfo-container flex page">
-      <div className="image">
-        <div className="img-container">
-          <img src={pro.image} alt="" />
-        </div>
-      </div>
-      <div className="info">
-        <div className="name">{pro.name}</div>
-        <div className="flex moreinfo">
-          <div className="star">
-            {star_arr.map((v, i) => {
-              return <i className="fas fa-star yellow_star" key={i}></i>;
-            })}
-            {nonstar_arr.map((v, i) => {
-              return <i className="fas fa-star" key={5 - i}></i>;
-            })}
+    <div>
+      <div className="maininfo-container flex ">
+        <div className="image">
+          <div className="img-container">
+            <img src={pro.image} alt="" />
           </div>
-          <div className="number-of-rating">({pro.luotdanhgia} đánh giá)</div>
-          <div className="sold">Đã bán {pro.sold}</div>
         </div>
-        <div className="price-container">
-          <div className="price-after-discount">{pro.price_after_discount}</div>
-          <div className="flex">
-            <div className="price-before-discount">{pro.price_before_discount}</div>
-            <div className="discount">10%</div>
+        <div className="info">
+          <div className="name">{pro.name}</div>
+          <div className="flex moreinfo">
+            <div className="star">
+              {star_arr.map((v, i) => {
+                return <i className="fas fa-star yellow_star" key={i}></i>;
+              })}
+              {nonstar_arr.map((v, i) => {
+                return <i className="fas fa-star" key={5 - i}></i>;
+              })}
+            </div>
+            <div className="number-of-rating">({pro.luotdanhgia} đánh giá)</div>
+            <div className="sold">Đã bán {pro.sold}</div>
           </div>
+          {discount(pro.pricebefore, pro.priceafter) > 0 ? (
+            <div className="price-container">
+              <div className="price-after-discount">{price_break(pro.priceafter)} ₫</div>
+              <div className="flex discount-container">
+                <div className="price-before-discount">{price_break(pro.pricebefore)} ₫</div>
+                <div className="discount">{discount(pro.pricebefore, pro.priceafter)}%</div>
+              </div>
+            </div>
+          ) : (
+            <div className="price-container">
+              <div className="price-after-discount no-discount">{price_break(pro.priceafter)} ₫</div>
+            </div>
+          )}
         </div>
       </div>
     </div>

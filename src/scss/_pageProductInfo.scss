@@ -1,8 +1,9 @@
-.detailinfo-container {
+//main-info
+.maininfo-container {
   background-color: #fff;
   border-radius: 5px;
   .image {
-    width: 500px;
+    width: 40%;
     padding: 10px;
     border: 1px black solid;
     .img-container {
@@ -14,8 +15,9 @@
     }
   }
   .info {
-    padding-left: 10px;
+    padding: 10px;
     border: 1px black solid;
+    width: 40%;
     .name {
       padding: 10px;
       font-size: 24px;
@@ -40,6 +42,34 @@
       }
     }
     .price-container {
+      padding: 1em;
+      background-color: $body-bg-color;
+      display: block;
+      .price-after-discount {
+        color: rgb(255, 66, 78);
+        font-size: 32px;
+      }
+      .no-discount {
+        padding: 10px;
+      }
+      .discount-container {
+        margin-top: 5px;
+        width: fit-content;
+        .price-before-discount {
+          color: $text-color-2;
+          font-size: 18px;
+          text-decoration: line-through;
+        }
+        .discount {
+          font-size: 14px;
+          color: rgb(255, 66, 78);
+          background-color: rgb(255, 240, 241);
+          border-radius: 2px;
+          border: 1px solid rgb(255, 66, 78);
+          padding: 2px;
+          margin-left: 15px;
+        }
+      }
     }
   }
 }
