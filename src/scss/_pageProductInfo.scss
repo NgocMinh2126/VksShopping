@@ -5,9 +5,7 @@
   .image {
     width: 35%;
     padding: 10px;
-    border: 1px black solid;
     .img-container {
-      border: 1px black solid;
       margin-left: auto;
       margin-right: auto;
       width: 100%;
@@ -16,7 +14,7 @@
   }
   .info {
     padding: 0.5em;
-    border: 1px black solid;
+    border-left: 1px solid $border-gray-color;
     width: 40%;
     .name {
       padding: 10px;
@@ -90,6 +88,18 @@
           font-size: 20px;
           border: 1px solid $border-color-2;
         }
+      }
+      #add-cart-btn {
+        padding: 13px 20px;
+        margin-top: 20px;
+        font-size: 18px;
+        background-color: $red-color;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+      }
+      #add-cart-btn:hover {
+        background-color: #f50c1c;
       }
     }
   }

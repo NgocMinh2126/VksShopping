@@ -325,17 +325,15 @@ button {
   border-radius: 5px; }
   .maininfo-container .image {
     width: 35%;
-    padding: 10px;
-    border: 1px black solid; }
+    padding: 10px; }
     .maininfo-container .image .img-container {
-      border: 1px black solid;
       margin-left: auto;
       margin-right: auto;
       width: 100%;
       padding-top: 100%; }
   .maininfo-container .info {
     padding: 0.5em;
-    border: 1px black solid;
+    border-left: 1px solid #c3c3c3;
     width: 40%; }
     .maininfo-container .info .name {
       padding: 10px;
@@ -395,3 +393,13 @@ button {
           outline: none;
           font-size: 20px;
           border: 1px solid #e4e4e4; }
+      .maininfo-container .info .cart-action #add-cart-btn {
+        padding: 13px 20px;
+        margin-top: 20px;
+        font-size: 18px;
+        background-color: #ff3945;
+        color: #fff;
+        border: none;
+        border-radius: 3px; }
+      .maininfo-container .info .cart-action #add-cart-btn:hover {
+        background-color: #f50c1c; }

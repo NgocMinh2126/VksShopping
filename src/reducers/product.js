@@ -4,6 +4,9 @@ const initialState = {
   listProduct: {
     status: constant.LOADING,
   },
+  productInfo: {
+    status: constant.LOADING,
+  },
 };
 export function product(state = initialState, action) {
   switch (action.type) {
@@ -22,6 +25,24 @@ export function product(state = initialState, action) {
         listProduct: {
           status: constant.FAILURE,
           data: [],
+        },
+      };
+    }
+    case constant.GET_PRODUCT_SUCCESS: {
+      return {
+        ...state,
+        productInfo: {
+          status: constant.SUCCESS,
+          data: action.data,
+        },
+      };
+    }
+    case constant.GET_PRODUCT_FAILURE: {
+      return {
+        ...state,
+        productInfo: {
+          status: constant.FAILURE,
+          data: {},
         },
       };
     }
