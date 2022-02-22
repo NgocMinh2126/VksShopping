@@ -320,6 +320,13 @@ button {
     .product-container .list-product .product-card {
       width: calc(25% - 20px); }
 
+.star {
+  color: #c3c3c3; }
+  .star i {
+    margin-right: 4px; }
+  .star .yellow_star {
+    color: #fdd836; }
+
 .maininfo-container {
   background-color: #fff;
   border-radius: 5px; }
@@ -342,10 +349,6 @@ button {
     .maininfo-container .info .moreinfo {
       padding: 10px;
       color: #757575; }
-      .maininfo-container .info .moreinfo .star {
-        color: #c3c3c3; }
-        .maininfo-container .info .moreinfo .star .yellow_star {
-          color: #fdd836; }
       .maininfo-container .info .moreinfo .number-of-rating {
         padding-left: 10px; }
       .maininfo-container .info .moreinfo .sold {
@@ -422,3 +425,28 @@ button {
     padding: 10px;
     width: 60%;
     background-color: #f6f2f8; }
+
+.tabs {
+  padding: 10px; }
+  .tabs .tab-title {
+    margin-left: 10px; }
+    .tabs .tab-title h3 {
+      cursor: pointer;
+      margin-bottom: 10px;
+      padding: 10px; }
+    .tabs .tab-title .active {
+      border-bottom: 3px solid #7b2cbf; }
+  .tabs .description {
+    padding: 10px; }
+    .tabs .description p {
+      font-size: 17px; }
+  .tabs .comment .total {
+    width: fit-content; }
+    .tabs .comment .total .average-rating {
+      font-size: 38px; }
+    .tabs .comment .total .more {
+      font-size: 18px;
+      color: #757575;
+      margin-left: 8px; }
+      .tabs .comment .total .more i {
+        margin-bottom: 3px; }
