@@ -140,6 +140,8 @@
       cursor: pointer;
       margin-bottom: 10px;
       padding: 10px;
+      padding-left: 0;
+      margin-right: 10px;
     }
     .active {
       border-bottom: 3px solid $btn-color;
@@ -165,6 +167,54 @@
           margin-bottom: 3px;
         }
       }
+    }
+  }
+}
+.comment-card-container {
+  margin: 10px;
+  justify-content: space-between;
+  border-bottom: 1px solid $border-color-2;
+  .user-info {
+    height: fit-content;
+    .avt {
+      width: 2.5em;
+      height: 2.5em;
+      border-radius: 100%;
+      line-height: 2.5em;
+      color: $text-color-2;
+      font-size: 20px;
+      font-weight: 500;
+      background-color: $main-bg-color;
+      text-align: center;
+    }
+    .info {
+      padding-top: 8px;
+      margin-left: 20px;
+      color: $text-color-2;
+      .name {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+  .comment-display {
+    width: calc(100% - 300px);
+    .rating {
+      span {
+        padding-left: 20px;
+        font-size: 18px;
+        font-weight: 500;
+        color: $text-color;
+      }
+    }
+    .content {
+      font-size: 15px;
+      color: $text-color-2;
+      line-height: 1.5;
+      padding-top: 10px;
     }
   }
 }

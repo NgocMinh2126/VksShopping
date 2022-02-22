@@ -9,10 +9,10 @@ function getProduct() {
     });
   };
   function success(data) {
-    return { type: constant.GET_PURCHASED_PRODUCTS_SUCCESS, data };
+    return { type: constant.GET_PRODUCTS_SUCCESS, data };
   }
   function failure(code, msg) {
-    return { type: constant.GET_PURCHASED_PRODUCTS_FAILURE, code, msg };
+    return { type: constant.GET_PRODUCTS_FAILURE, code, msg };
   }
 }
 function getProductInfo(id) {
@@ -30,7 +30,23 @@ function getProductInfo(id) {
     return { type: constant.GET_PRODUCT_FAILURE, code, msg };
   }
 }
+function getProductRating(id) {
+  return (dispatch) => {
+    productService.getProductRating(id).then((res) => {
+      if (res.status === constant.SUCCESS) {
+        dispatch(success(res.data));
+      } else dispatch(failure(res.code, res.msg));
+    });
+  };
+  function success(data) {
+    return { type: constant.GET_PRODUCT_REVIEW_SUCCESS, data };
+  }
+  function failure(code, msg) {
+    return { type: constant.GET_PRODUCT_REVIEW_FAILURE, code, msg };
+  }
+}
 export const productActions = {
   getProduct,
   getProductInfo,
+  getProductRating,
 };

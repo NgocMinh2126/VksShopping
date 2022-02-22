@@ -5,6 +5,7 @@ import MainInfo from "./child/MainInfo";
 import { constant } from "../../constants";
 import { productActions } from "../../actions/productActions";
 import DetailInfo from "./child/DetailInfo";
+import CommentTab from "./child/CommentTab";
 
 export default function ProductInfoPage(props) {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ export default function ProductInfoPage(props) {
       <DetailInfo
         attributes={Info.data.attributes}>
       </DetailInfo>
+      <CommentTab></CommentTab>
     </div>)
   );
 }

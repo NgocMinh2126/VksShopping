@@ -7,10 +7,13 @@ const initialState = {
   productInfo: {
     status: constant.LOADING,
   },
+  productRating: {
+    status: constant.LOADING,
+  },
 };
 export function product(state = initialState, action) {
   switch (action.type) {
-    case constant.GET_PURCHASED_PRODUCTS_SUCCESS: {
+    case constant.GET_PRODUCTS_SUCCESS: {
       return {
         ...state,
         listProduct: {
@@ -19,7 +22,7 @@ export function product(state = initialState, action) {
         },
       };
     }
-    case constant.GET_PURCHASED_PRODUCTS_FAILURE: {
+    case constant.GET_PRODUCTS_FAILURE: {
       return {
         ...state,
         listProduct: {
@@ -43,6 +46,24 @@ export function product(state = initialState, action) {
         productInfo: {
           status: constant.FAILURE,
           data: {},
+        },
+      };
+    }
+    case constant.GET_PRODUCT_REVIEW_SUCCESS: {
+      return {
+        ...state,
+        productRating: {
+          status: constant.SUCCESS,
+          data: action.data,
+        },
+      };
+    }
+    case constant.GET_PRODUCT_REVIEW_FAILURE: {
+      return {
+        ...state,
+        productRating: {
+          status: constant.FAILURE,
+          data: [],
         },
       };
     }

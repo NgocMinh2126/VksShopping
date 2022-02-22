@@ -1,9 +1,9 @@
 export default function DetailInfo(props) {
   let { attributes } = props;
   function createInfo(attributes) {
-    return attributes.map((v) => {
+    return attributes.map((v, i) => {
       return (
-        <div className="flex" key={v._id}>
+        <div className="flex" key={i}>
           <div className="title">{v.name}</div>
           <div className="info">{v.value}</div>
         </div>);
