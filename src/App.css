@@ -403,3 +403,22 @@ button {
         border-radius: 3px; }
       .maininfo-container .info .cart-action #add-cart-btn:hover {
         background-color: #f50c1c; }
+
+.detailinfo-container {
+  padding: 10px;
+  border-radius: 5px; }
+  .detailinfo-container h3 {
+    margin-bottom: 10px; }
+  .detailinfo-container .flex .title {
+    border-bottom: 1px solid #e4e4e4;
+    color: #360d5e;
+    font-weight: 600;
+    padding: 10px;
+    width: 20%;
+    background-color: #efefef; }
+  .detailinfo-container .flex .info {
+    border-bottom: 1px solid #e4e4e4;
+    color: #757575;
+    padding: 10px;
+    width: 60%;
+    background-color: #f6f2f8; }

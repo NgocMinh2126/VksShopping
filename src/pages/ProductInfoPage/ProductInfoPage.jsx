@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import MainInfo from "./child/MainInfo";
 import { constant } from "../../constants";
 import { productActions } from "../../actions/productActions";
+import DetailInfo from "./child/DetailInfo";
 
 export default function ProductInfoPage(props) {
   const dispatch = useDispatch();
@@ -12,9 +13,9 @@ export default function ProductInfoPage(props) {
   useEffect(() => {
     if (Info.status === constant.LOADING) {
       dispatch(productActions.getProductInfo(id));
-    } else console.log(Info);
+    } else console.log(Info.data);
   });
-  return (
+  return (!Info.data ? (<div></div>) : (
     <div>
       <MainInfo
         name={Info.data.name}
@@ -24,7 +25,11 @@ export default function ProductInfoPage(props) {
         sold={Info.data.sold}
         priceafter={Info.data.after_discount_price}
         pricebefore={Info.data.before_discount_price}
+        quantity={Info.data.quantity}
       />
-    </div>
+      <DetailInfo
+        attributes={Info.data.attributes}>
+      </DetailInfo>
+    </div>)
   );
 }

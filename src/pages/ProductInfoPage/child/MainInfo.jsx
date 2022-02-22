@@ -1,5 +1,6 @@
+import { useState } from "react";
 export default function MainInfo(props) {
-  let { name, image, rating, luotdanhgia, sold, priceafter, pricebefore } = props;
+  let { name, image, rating, luotdanhgia, sold, priceafter, pricebefore, quantity } = props;
 
   let star_arr = Array.from(new Array(rating), () => 0);
   let nonstar_arr = Array.from(new Array(5 - rating), () => 0);
@@ -22,6 +23,17 @@ export default function MainInfo(props) {
       kq = Math.round(((pricebefore - priceafter) / pricebefore) * 100);
     }
     return kq;
+  }
+  const [selectnumber, setAmount] = useState(1);
+  function increaseAmount() {
+    if (selectnumber <= quantity) {
+      return setAmount(selectnumber + 1);
+    }
+  }
+  function descreaseAmount() {
+    if (selectnumber > 1) {
+      return setAmount(selectnumber - 1);
+    }
   }
   return (
     <div>
@@ -61,9 +73,17 @@ export default function MainInfo(props) {
           <div className="cart-action">
             Số lượng <br />
             <div className="flex">
-              <button>-</button>
-              <input type="number" value="1" />
-              <button>+</button>
+              {selectnumber <= 1 ? (
+                <button onClick={descreaseAmount} disabled={true}>-</button>
+              ) : (
+                <button onClick={descreaseAmount}>-</button>
+              )}
+              <input type="number" value={selectnumber} />
+              {selectnumber >= quantity ? (
+                <button onClick={increaseAmount} disabled={true}>+</button>
+              ) : (
+                <button onClick={increaseAmount} >+</button>
+              )}
             </div>
             <button id="add-cart-btn">Thêm vào giỏ hàng</button>
           </div>

@@ -104,3 +104,28 @@
     }
   }
 }
+//detail info
+.detailinfo-container {
+  padding: 10px;
+  border-radius: 5px;
+  h3 {
+    margin-bottom: 10px;
+  }
+  .flex {
+    .title {
+      border-bottom: 1px solid $border-color-2;
+      color: $text-color;
+      font-weight: 600;
+      padding: 10px;
+      width: 20%;
+      background-color: $gray-bg-color;
+    }
+    .info {
+      border-bottom: 1px solid $border-color-2;
+      color: $text-color-2;
+      padding: 10px;
+      width: 60%;
+      background-color: $body-bg-color;
+    }
+  }
+}
