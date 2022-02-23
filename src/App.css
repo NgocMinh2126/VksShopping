@@ -408,25 +408,30 @@ button {
         background-color: #f50c1c; }
 
 .detailinfo-container {
-  padding: 10px;
+  margin-top: 20px; }
+
+.detailinfo {
+  background-color: #fff;
+  padding: 20px;
   border-radius: 5px; }
-  .detailinfo-container h3 {
+  .detailinfo h3 {
     margin-bottom: 10px; }
-  .detailinfo-container .flex .title {
+  .detailinfo .flex .title {
     border-bottom: 1px solid #e4e4e4;
     color: #360d5e;
     font-weight: 600;
     padding: 10px;
     width: 20%;
     background-color: #efefef; }
-  .detailinfo-container .flex .info {
+  .detailinfo .flex .info {
     border-bottom: 1px solid #e4e4e4;
     color: #757575;
     padding: 10px;
-    width: 60%;
+    width: 80%;
     background-color: #f6f2f8; }
 
 .tabs {
+  background-color: #fff;
   padding: 10px; }
   .tabs .tab-title {
     margin-left: 10px; }
@@ -439,19 +444,8 @@ button {
     .tabs .tab-title .active {
       border-bottom: 3px solid #7b2cbf; }
   .tabs .description {
-    padding: 10px; }
-    .tabs .description p {
-      font-size: 17px; }
-  .tabs .comment .total {
-    width: fit-content; }
-    .tabs .comment .total .average-rating {
-      font-size: 38px; }
-    .tabs .comment .total .more {
-      font-size: 18px;
-      color: #757575;
-      margin-left: 8px; }
-      .tabs .comment .total .more i {
-        margin-bottom: 3px; }
+    padding: 10px;
+    font-size: 17px; }
 
 .comment-card-container {
   margin: 10px;
@@ -490,3 +484,14 @@ button {
       color: #757575;
       line-height: 1.5;
       padding-top: 10px; }
+
+.comment-tab .comment .total {
+  width: fit-content; }
+  .comment-tab .comment .total .average-rating {
+    font-size: 38px; }
+  .comment-tab .comment .total .more {
+    font-size: 18px;
+    color: #757575;
+    margin-left: 8px; }
+    .comment-tab .comment .total .more i {
+      margin-bottom: 3px; }

@@ -9,6 +9,8 @@ export default function CommentCard(props) {
     "Hài lòng",
     "Rất hài lòng"
   ]
+  let star_arr = Array.from(new Array(star), () => 0);
+  let nonstar_arr = Array.from(new Array(5 - star), () => 0);
 
   let usernamearr = username.split(" ");
   let avt = usernamearr.length > 0 ? (
@@ -28,13 +30,17 @@ export default function CommentCard(props) {
       <div className="comment-display">
         <div className="flex rating">
           <div className="flex star">
-            <i className="fas fa-star yellow_star" />
-            <i className="fas fa-star yellow_star" />
-            <i className="fas fa-star yellow_star" />
-            <i className="fas fa-star yellow_star" />
-            <i className="fas fa-star yellow_star" />
+            {
+              star_arr.map((v, i) => {
+                return (<i className="fas fa-star yellow_star" key={i} />)
+              })}
+            {
+              nonstar_arr.map((v, i) => {
+                return (<i className="fas fa-star " key={5 - i} />)
+              })
+            }
           </div>
-          <span>Rất hài lòng</span>
+          <span>{rating[star - 1]}</span>
         </div>
         <div className="content">{content}</div>
       </div>
