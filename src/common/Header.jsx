@@ -8,14 +8,14 @@ export default function Header() {
         </div>
         <div className="category-btn-container">
           <button className="category-btn flex">
-            <i class="fa-solid fa-bars"></i>
-            <i class="fa-solid fa-caret-down"></i>
+            <i className="fa-solid fa-bars"></i>
+            <i className="fa-solid fa-caret-down"></i>
           </button>
         </div>
         <div className="search-bar">
           <input placeholder="Tìm kiếm sản phẩm" type="text" />
           <button className="search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
         <a href="/" className="cart flex">
@@ -28,10 +28,10 @@ export default function Header() {
       </div>
       <div className="nav-bar flex">
         <div className="nav-bar-left">
-          <a href="/" className="nav-btn">
+          <a href="/home" className="nav-btn">
             <i className="fa-solid fa-house"></i> Trang chủ
           </a>
-          <a href="/" className="nav-btn">
+          <a href="/product" className="nav-btn">
             Sản phẩm
           </a>
           <a href="/" className="nav-btn">

@@ -1,34 +1,10 @@
+import { helper } from "../helper";
 export default function ProductCard(props) {
-  let { name, pricebefore, sold, priceafter, image } = props;
+  let { _id, name, pricebefore, sold, priceafter, image } = props;
 
-  function price_break(price) {
-    price = price.toString();
-    let giatien = "";
-    let count = price.length % 3;
-    for (let i = 0; i < price.length; i++) {
-      giatien += price[i];
-      count--;
-      if (count % 3 === 0 && i < price.length - 1) {
-        giatien += ".";
-      }
-    }
-    return giatien;
-  }
-  function priceafterdiscount(price, discount) {
-    if (discount > 0) {
-      price = (price * discount) / 100;
-    }
-    return price;
-  }
-  function discount(pricebefore, priceafter) {
-    let kq = 0;
-    if (pricebefore !== priceafter) {
-      kq = Math.round(((pricebefore - priceafter) / pricebefore) * 100);
-    }
-    return kq;
-  }
+
   return (
-    <div className="product-card">
+    <a className="product-card" href={"/product/" + _id}>
       <div className="image">
         <div className="img-container">
           <img src={image} alt="" />
@@ -39,17 +15,17 @@ export default function ProductCard(props) {
         <div className="sold">Đã bán {sold}</div>
       </div>
       <div className="row">
-        {discount(pricebefore, priceafter) > 0 ? (
+        {helper.discount(pricebefore, priceafter) > 0 ? (
           <div className="price_red">
-            {price_break(priceafter)}đ
+            {helper.priceBreak(priceafter)}đ
           </div>
         ) : (
           <div className="price">
-            {price_break(pricebefore)}đ
+            {helper.priceBreak(pricebefore)}đ
           </div>
         )}
-        {discount(pricebefore, priceafter) > 0 && <div className="discount">{discount(pricebefore, priceafter)}%</div>}
+        {helper.discount(pricebefore, priceafter) > 0 && <div className="discount">{helper.discount(pricebefore, priceafter)}%</div>}
       </div>
-    </div>
+    </a>
   );
 }

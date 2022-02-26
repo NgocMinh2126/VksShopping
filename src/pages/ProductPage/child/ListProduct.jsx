@@ -15,6 +15,7 @@ export default function ListProducts(props) {
     return data.map((v, i) => (
       <ProductCard
         key={v._id}
+        _id={v._id}
         name={v.name}
         image={v.images}
         pricebefore={v.before_discount_price}

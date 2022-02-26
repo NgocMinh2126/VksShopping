@@ -2,6 +2,7 @@ import React from "react"
 import Header from "../../common/Header"
 import Footer from "../../common/Footer"
 import Categories from "../../common/Categories"
+import PageBreak from "../../common/PageBreak"
 import ListProducts from "./child/ListProduct";
 export default function ProductPage() {
   return (
@@ -18,11 +19,14 @@ export default function ProductPage() {
                 <Categories ></Categories>
               </div>
             </div>
-            <ListProducts ></ListProducts>
+            <div className="products">
+              <ListProducts ></ListProducts>
+              <PageBreak></PageBreak>
+            </div>
           </div>
         </div>
       </div>
       <Footer></Footer>
-    </React.Fragment>
+    </React.Fragment >
   );
 }

@@ -1,15 +1,14 @@
 import "./App.css";
-import MainInfo from "./pages/ProductInfoPage/child/MainInfo";
+import { Routes, Route } from "react-router-dom";
 import ProductInfoPage from "./pages/ProductInfoPage/ProductInfoPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 
 function App() {
   return (
-    <div className="App">
-      {/* <ProductPage></ProductPage> */}
-      {/* <MainInfo></MainInfo> */}
-      <ProductInfoPage></ProductInfoPage>
-    </div>
+    <Routes>
+      <Route path="/product" element={<ProductPage />}></Route>
+      <Route path="/product/:id" element={<ProductInfoPage />}></Route>
+    </Routes>
   );
 }
 

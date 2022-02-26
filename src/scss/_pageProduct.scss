@@ -13,11 +13,14 @@
       border-bottom: none;
     }
   }
-  .list-product {
-    padding-right: 10px;
+  .products {
     width: calc(100% - 320px);
-    .product-card {
-      width: calc(25% - 20px);
+    .list-product {
+      width: 100%;
+      padding-right: 10px;
+      .product-card {
+        width: calc(25% - 20px);
+      }
     }
   }
 }

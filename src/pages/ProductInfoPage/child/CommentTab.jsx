@@ -1,21 +1,9 @@
 import { useSelector } from "react-redux";
 import CommentCard from "./CommentCard";
-
+import { helper } from "../../../helper";
 export default function CommentTab(props) {
   const Rating = useSelector(store => store.product.productRating);
 
-  function createyellowstar(star) {
-    let star_arr = Array.from(new Array(star), () => 0);
-    return star_arr.map((v, i) => {
-      return <i className="fas fa-star yellow_star" key={i} />;
-    })
-  }
-  function createnonstar(star) {
-    let nonstar_arr = Array.from(new Array(5 - star), () => 0);
-    return nonstar_arr.map((v, i) => {
-      return <i className="fas fa-star" key={5 - i} />;
-    })
-  }
   function average_star(data) {
     let kq = 0;
     if (data.length === 1) {
@@ -54,8 +42,8 @@ export default function CommentTab(props) {
               <div className="average-rating">{average_star(Rating.data)}</div>
               <div className="more">
                 <div className="flex star">
-                  {createyellowstar(average_star(Rating.data))}
-                  {createnonstar(average_star(Rating.data))}
+                  {helper.createYellowstar(average_star(Rating.data))}
+                  {helper.createNonstar(average_star(Rating.data))}
                 </div>
                 {Rating.data.length} nhận xét
               </div>

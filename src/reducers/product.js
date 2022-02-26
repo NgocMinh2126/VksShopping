@@ -19,6 +19,7 @@ export function product(state = initialState, action) {
         listProduct: {
           status: constant.SUCCESS,
           data: action.data,
+          total_page: action.total_page,
         },
       };
     }
@@ -27,6 +28,7 @@ export function product(state = initialState, action) {
         ...state,
         listProduct: {
           status: constant.FAILURE,
+          total_page: action.total_page,
           data: [],
         },
       };

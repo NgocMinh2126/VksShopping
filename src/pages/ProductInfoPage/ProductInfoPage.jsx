@@ -8,18 +8,21 @@ import { productActions } from "../../actions/productActions";
 import DetailInfo from "./child/DetailInfo";
 import Header from "../../common/Header";
 import Footer from "../../common/Footer";
+import SimilarProduct from "./child/SimilarProduct";
+import { useParams } from "react-router-dom";
 export default function ProductInfoPage(props) {
   const dispatch = useDispatch();
   const Info = useSelector(store => store.product.productInfo);
   const Rating = useSelector(store => store.product.productRating);
-  let id = "61c04f473b122c8fa6bf2c71";
+  let param = useParams();
+  console.log(param.id);
   useEffect(() => {
     if (Info.status === constant.LOADING) {
-      dispatch(productActions.getProductInfo(id));
+      dispatch(productActions.getProductInfo(param.id));
     }
     if (Info.status === constant.SUCCESS) {
       if (Rating.status === constant.LOADING) {
-        dispatch(productActions.getProductRating(id));
+        dispatch(productActions.getProductRating(param.id));
       }
       document.title = Info.data.name;
     }
@@ -45,7 +48,7 @@ export default function ProductInfoPage(props) {
                 attributes={Info.data.attributes}
                 description={Info.data.description}>
               </DetailInfo>
-
+              <SimilarProduct></SimilarProduct>
             </div>)}
         </div>
       </div>
