@@ -1,16 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { constant } from "../../../constants";
-import { productActions } from "../../../actions/productActions";
+import { useSelector } from "react-redux";
 import ProductCard from "../../../common/Productcard";
 export default function ListProducts(props) {
-  const dispacth = useDispatch();
   const listProduct = useSelector((store) => store.product.listProduct);
-  useEffect(() => {
-    if (listProduct.status === constant.LOADING) {
-      dispacth(productActions.getProduct());
-    } else console.log(listProduct.data);
-  });
+
   function createProductCard(data) {
     return data.map((v, i) => (
       <ProductCard

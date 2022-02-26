@@ -294,6 +294,28 @@ a {
   margin-left: 10px;
   margin-top: 20px; }
 
+.pagebreak-container {
+  justify-content: center; }
+  .pagebreak-container button {
+    outline: none;
+    color: #360d5e;
+    font-size: 20px;
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    border: none;
+    margin: 0 10px 20px 10px;
+    background-color: #eae0f3; }
+  .pagebreak-container .active {
+    background-color: #9543e6;
+    color: #fff; }
+  .pagebreak-container button:hover {
+    background-color: #9543e6;
+    color: #fff; }
+  .pagebreak-container button:disabled {
+    background-color: #fafafa;
+    color: #757575; }
+
 .banners {
   overflow: hidden; }
   .banners img {

@@ -259,3 +259,30 @@
   margin-left: 10px;
   margin-top: 20px;
 }
+.pagebreak-container {
+  justify-content: center;
+  button {
+    outline: none;
+    color: $text-color;
+    font-size: 20px;
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    border: none;
+    margin: 0 10px 20px 10px;
+    background-color: $main-bg-color;
+  }
+  .active {
+    background-color: $hover-color;
+    color: #fff;
+  }
+
+  button:hover {
+    background-color: $hover-color;
+    color: #fff;
+  }
+  button:disabled {
+    background-color: #fafafa;
+    color: $text-color-2;
+  }
+}
