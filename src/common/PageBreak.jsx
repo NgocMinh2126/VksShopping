@@ -1,8 +1,11 @@
 import { useSearchParams } from "react-router-dom";
 export default function PageBreak(props) {
   let { totalpage } = props;
+  let currentpage = 1
   const [searchparam, setSearchPage] = useSearchParams(1);
-  let currentpage = parseInt(searchparam.get("page"));
+  if (searchparam.get("page") != null) {
+    currentpage = parseInt(searchparam.get("page"));
+  }
   console.log("current page: " + currentpage);
   function createPage(current, total) {
     let arr = [];
@@ -13,7 +16,7 @@ export default function PageBreak(props) {
           (<button className=" active" key={"page_" + i}>
             {i + 1}
           </button>) :
-          (<button>
+          (<button key={"page_" + i} onClick={() => handlePage(i + 1)}>
             {i + 1}
           </button>)
         );
@@ -32,7 +35,7 @@ export default function PageBreak(props) {
         return (v === current ? (
           <button className="active" key={"page_" + v}>{v}</button>
         ) : (
-          <button>{v}</button>
+          <button onClick={() => handlePage(v)} key={"page_" + v}>{v}</button>
         ))
       })
     }
@@ -49,7 +52,7 @@ export default function PageBreak(props) {
             <i className="fa-solid fa-angle-left"></i>
           </button>
         ) : (
-          <button disabled={true}>
+          <button disabled={true} >
             <i className="fa-solid fa-angle-left"></i>
           </button>
         )}
@@ -59,7 +62,7 @@ export default function PageBreak(props) {
             <i className="fa-solid fa-angle-right"></i>
           </button>
         ) : (
-          <button disabled={true}>
+          <button disabled={true} >
             <i className="fa-solid fa-angle-right"></i>
           </button>)}
       </div>

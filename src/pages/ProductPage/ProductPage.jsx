@@ -8,12 +8,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react"
 import { constant } from "../../constants";
 import { productActions } from "../../actions/productActions";
+import { useSearchParams } from "react-router-dom"
 export default function ProductPage() {
+  let page = 1;
   const dispacth = useDispatch();
   const listProduct = useSelector((store) => store.product.listProduct);
+  const [params, setParam] = useSearchParams();
+  if (params.get("page") != null) {
+    page = parseInt(params.get("page"));
+  }
   useEffect(() => {
     if (listProduct.status === constant.LOADING) {
-      dispacth(productActions.getProduct());
+      dispacth(productActions.getProduct(page));
     } else console.log(listProduct.data);
   });
   return (

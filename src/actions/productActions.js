@@ -1,8 +1,8 @@
 import { constant } from "../constants";
 import { productService } from "../services/productService";
-function getProduct() {
+function getProduct(page) {
   return (dispatch) => {
-    productService.getProduct().then((res) => {
+    productService.getProduct(page).then((res) => {
       if (res.status === constant.SUCCESS) {
         dispatch(success(res.data, res.total_page));
       } else dispatch(failure(res.code, res.msg));
