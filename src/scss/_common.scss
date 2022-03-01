@@ -1,3 +1,4 @@
+//Header
 .header-container {
   background-color: $main-bg-color;
   position: fixed;
@@ -113,6 +114,7 @@
     }
   }
 }
+//Footer
 .footer-container {
   background-color: $dark-bg-color;
   .footer-left {
@@ -190,6 +192,7 @@
   border: 1px solid $border-gray-color;
   overflow: scroll;
 }
+//Product card
 .product-card {
   margin-left: 10px;
   margin-right: 10px;
@@ -198,11 +201,10 @@
   cursor: pointer;
   border-radius: 3px;
   padding: 5px;
+  width: 100%;
   .image {
     width: 100%;
     .img-container {
-      margin-left: auto;
-      margin-right: auto;
       width: 100%;
       padding-top: 100%;
     }
@@ -284,5 +286,101 @@
   button:disabled {
     background-color: #fafafa;
     color: $text-color-2;
+  }
+}
+//Popup
+.register-popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  h4 {
+    font-size: 25px;
+    color: $text-color;
+  }
+  input[type="text"],
+  input[type="password"] {
+    width: 400px;
+    border-radius: 3px;
+    border: 1px solid $border-gray-color;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    display: block;
+  }
+  label {
+    color: $text-color-2;
+  }
+  > .flex {
+    margin-top: 10px;
+    label {
+      width: 5em;
+    }
+    .flex {
+      align-items: center;
+      margin-bottom: 10px;
+      label {
+        width: 3em;
+      }
+      input {
+        width: fit-content !important;
+      }
+    }
+  }
+  .complete-btn {
+    background-color: $red-color;
+    color: #fff;
+    width: 400px;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 18px;
+  }
+  .exit-btn {
+    font-size: 18px;
+    color: #fff;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    text-align: center;
+    top: -10px;
+    right: -10px;
+    background-color: $red-color;
+  }
+  .complete-btn:hover,
+  .exit-btn:hover {
+    background-color: #f50c1c;
+  }
+  .err-msg {
+    color: $red-color;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+}
+.phonecheck-popup {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  h3,
+  h4 {
+    color: $text-color;
+  }
+  input {
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    width: 400px;
+    border-bottom: 1px solid $border-gray-color;
+  }
+  .complete-btn {
+    background-color: $red-color;
+    color: #fff;
+    width: 400px;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 18px;
+  }
+  .complete-btn:hover {
+    background-color: #f50c1c;
   }
 }

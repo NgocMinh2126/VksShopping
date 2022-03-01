@@ -13,6 +13,15 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield; }
 
+input[type="text"],
+input[type="password"] {
+  outline: none;
+  border: none; }
+
+button {
+  outline: none;
+  border: none; }
+
 button,
 a {
   cursor: pointer; }
@@ -52,6 +61,27 @@ a {
 
 .bg {
   background-color: #f6f2f8; }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background: rgba(0, 0, 0, 0.2); }
+
+.modal.active {
+  display: block; }
+
+.center {
+  display: flex !important;
+  justify-content: center;
+  align-items: center; }
+
+.hide {
+  display: none; }
 
 @media only screen and (min-width: 1200px) {
   .page {
@@ -240,12 +270,11 @@ a {
   background-color: white;
   cursor: pointer;
   border-radius: 3px;
-  padding: 5px; }
+  padding: 5px;
+  width: 100%; }
   .product-card .image {
     width: 100%; }
     .product-card .image .img-container {
-      margin-left: auto;
-      margin-right: auto;
       width: 100%;
       padding-top: 100%; }
   .product-card .name {
@@ -315,6 +344,85 @@ a {
   .pagebreak-container button:disabled {
     background-color: #fafafa;
     color: #757575; }
+
+.register-popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative; }
+  .register-popup h4 {
+    font-size: 25px;
+    color: #360d5e; }
+  .register-popup input[type="text"],
+  .register-popup input[type="password"] {
+    width: 400px;
+    border-radius: 3px;
+    border: 1px solid #c3c3c3;
+    padding: 10px;
+    font-size: 16px;
+    margin-top: 10px;
+    display: block; }
+  .register-popup label {
+    color: #757575; }
+  .register-popup > .flex {
+    margin-top: 10px; }
+    .register-popup > .flex label {
+      width: 5em; }
+    .register-popup > .flex .flex {
+      align-items: center;
+      margin-bottom: 10px; }
+      .register-popup > .flex .flex label {
+        width: 3em; }
+      .register-popup > .flex .flex input {
+        width: fit-content !important; }
+  .register-popup .complete-btn {
+    background-color: #ff3945;
+    color: #fff;
+    width: 400px;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 18px; }
+  .register-popup .exit-btn {
+    font-size: 18px;
+    color: #fff;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    text-align: center;
+    top: -10px;
+    right: -10px;
+    background-color: #ff3945; }
+  .register-popup .complete-btn:hover,
+  .register-popup .exit-btn:hover {
+    background-color: #f50c1c; }
+  .register-popup .err-msg {
+    color: #ff3945;
+    text-align: center;
+    margin-bottom: 8px; }
+
+.phonecheck-popup {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px; }
+  .phonecheck-popup h3,
+  .phonecheck-popup h4 {
+    color: #360d5e; }
+  .phonecheck-popup input {
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    width: 400px;
+    border-bottom: 1px solid #c3c3c3; }
+  .phonecheck-popup .complete-btn {
+    background-color: #ff3945;
+    color: #fff;
+    width: 400px;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 18px; }
+  .phonecheck-popup .complete-btn:hover {
+    background-color: #f50c1c; }
 
 .banners {
   overflow: hidden; }

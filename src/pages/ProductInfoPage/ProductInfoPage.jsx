@@ -48,10 +48,10 @@ export default function ProductInfoPage(props) {
                 attributes={Info.data.attributes}
                 description={Info.data.description}>
               </DetailInfo>
-              <SimilarProduct></SimilarProduct>
             </div>)}
         </div>
       </div>
+      <SimilarProduct></SimilarProduct>
       <Footer></Footer>
     </React.Fragment>
   );
