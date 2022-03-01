@@ -1,4 +1,11 @@
+import { useDispatch } from "react-redux";
+import { appActions } from "../../../actions/appActions";
+import { constant } from "../../../constants";
 export default function PhoneCheck(props) {
+  const dispatch = useDispatch();
+  function handleCompletebtn() {
+    dispatch(appActions.changePopup(constant.REGIS_POPUP));
+  }
   return (
     <div className="modal center">
       <div className="phonecheck-popup">
@@ -8,7 +15,7 @@ export default function PhoneCheck(props) {
           placeholder="Số điện thoại"
           name="phonenumber"
           type="number" />
-        <button className="complete-btn">
+        <button className="complete-btn" onClick={handleCompletebtn}>
           Tiếp tục
         </button>
       </div>

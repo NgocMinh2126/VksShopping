@@ -408,12 +408,22 @@ a {
   .phonecheck-popup h3,
   .phonecheck-popup h4 {
     color: #360d5e; }
+  .phonecheck-popup h3 {
+    font-size: 24px; }
+  .phonecheck-popup h4 {
+    margin-top: 20px;
+    font-size: 20px; }
   .phonecheck-popup input {
+    margin: 10px 0 20px 0;
+    outline: none;
+    border: none;
     display: block;
     padding: 10px;
     font-size: 16px;
     width: 400px;
     border-bottom: 1px solid #c3c3c3; }
+  .phonecheck-popup input:focus {
+    border-bottom: 2px solid #c3c3c3; }
   .phonecheck-popup .complete-btn {
     background-color: #ff3945;
     color: #fff;
