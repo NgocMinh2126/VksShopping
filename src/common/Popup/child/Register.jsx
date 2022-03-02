@@ -1,5 +1,6 @@
 import { useState } from "react"
 export default function Register(props) {
+  let { closePopup } = props
   const [errMsg, setErrMsg] = useState("");
   const [regisInfo, setRegisInfo] = useState({
     name: "",
@@ -94,10 +95,11 @@ export default function Register(props) {
           </div>
         </div>
         <div className="err-msg">{errMsg}</div>
-        <button className="complete-btn" onClick={handleCompleteRes}>
-          Xác nhận
-        </button>
-        <button className="exit-btn">
+        <div className="flex">
+          <button className="back-btn">Quay lại</button>
+          <button className="complete-btn">Đăng nhập</button>
+        </div>
+        <button className="exit-btn" onClick={closePopup}>
           <i className="fa-solid fa-xmark"></i>
         </button>
       </div>

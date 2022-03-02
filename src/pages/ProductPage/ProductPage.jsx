@@ -9,6 +9,7 @@ import { useEffect } from "react"
 import { constant } from "../../constants";
 import { productActions } from "../../actions/productActions";
 import { useSearchParams } from "react-router-dom"
+import Popup from "../../common/Popup/Popup"
 export default function ProductPage() {
   let page = 1;
   const dispacth = useDispatch();
@@ -44,6 +45,7 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
+      <Popup />
       <Footer></Footer>
     </React.Fragment >
   );

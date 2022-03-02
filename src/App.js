@@ -6,11 +6,11 @@ import Popup from "./common/Popup/Popup";
 
 function App() {
   return (
-    // <Routes>
-    //   <Route path="/product" element={<ProductPage />}></Route>
-    //   <Route path="/product/:id" element={<ProductInfoPage />}></Route>
-    // </Routes>
-    <Popup></Popup>
+    <Routes>
+      <Route path="/product" element={<ProductPage />}></Route>
+      <Route path="/product/:id" element={<ProductInfoPage />}></Route>
+    </Routes>
+    //<Popup></Popup>
   );
 }
 

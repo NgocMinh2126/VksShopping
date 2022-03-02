@@ -1,5 +1,12 @@
+import { useDispatch } from "react-redux";
+import { appActions } from "../actions/appActions";
+import { constant } from "../constants";
 //import { Link } from "react-router-dom";
 export default function Header() {
+  const dispatch = useDispatch();
+  function handleLogin() {
+    dispatch(appActions.changePopup(constant.PHONE_POPUP))
+  }
   return (
     <div className="header-container">
       <div className="top flex">
@@ -39,8 +46,14 @@ export default function Header() {
           </a>
         </div>
         <div className="nav-bar-right">
-          <a href="/" className="nav-btn">Đăng nhập</a>
-          <a href="/" className="nav-btn borderleft">Đăng ký</a>
+          <button
+            className="nav-btn"
+            onClick={handleLogin}>Đăng nhập
+          </button>
+          <button
+            className="nav-btn borderleft"
+            onClick={handleLogin}>Đăng ký
+          </button>
         </div>
       </div>
     </div>

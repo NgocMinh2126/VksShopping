@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { appActions } from "../../../actions/appActions";
 import { constant } from "../../../constants";
 export default function PhoneCheck(props) {
+  let { closePopup } = props;
   const dispatch = useDispatch();
   function handleCompletebtn() {
     dispatch(appActions.changePopup(constant.REGIS_POPUP));
@@ -17,6 +18,9 @@ export default function PhoneCheck(props) {
           type="number" />
         <button className="complete-btn" onClick={handleCompletebtn}>
           Tiếp tục
+        </button>
+        <button className="exit-btn" onClick={closePopup}>
+          <i className="fa-solid fa-xmark"></i>
         </button>
       </div>
     </div>

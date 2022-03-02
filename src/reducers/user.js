@@ -1,9 +1,9 @@
 import { constant } from "../constants";
 
-const innitialState = {
+const initialState = {
   phone: "",
 };
-export function user(state = innitialState, action) {
+export function user(state = initialState, action) {
   switch (action.type) {
     case constant.REQUEST_PHONE_CHECK: {
       return {

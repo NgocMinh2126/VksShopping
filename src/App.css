@@ -115,7 +115,7 @@ a {
   top: 0;
   left: 0;
   height: 150px;
-  z-index: 100;
+  z-index: 99;
   width: 100%; }
   .header-container .top {
     height: 100px;
@@ -201,6 +201,7 @@ a {
     .header-container .nav-bar .nav-bar-right {
       margin-right: 80px; }
       .header-container .nav-bar .nav-bar-right .nav-btn {
+        background-color: #eae0f3;
         padding-left: 20px; }
 
 .footer-container {
@@ -345,6 +346,47 @@ a {
     background-color: #fafafa;
     color: #757575; }
 
+.login-popup .complete-btn,
+.register-popup .complete-btn {
+  background-color: #ff3945;
+  color: #fff;
+  border-radius: 3px;
+  padding: 10px;
+  font-size: 18px;
+  width: calc(50% - 20px); }
+
+.login-popup .back-btn,
+.register-popup .back-btn {
+  background-color: #e4e4e4;
+  border-radius: 3px;
+  font-size: 18px;
+  margin-right: 20px;
+  padding: 10px;
+  width: calc(50% - 20px); }
+
+.login-popup .back-btn:hover,
+.register-popup .back-btn:hover {
+  background-color: #c3c3c3; }
+
+.login-popup .exit-btn,
+.register-popup .exit-btn {
+  font-size: 18px;
+  color: #fff;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  text-align: center;
+  top: -10px;
+  right: -10px;
+  background-color: #ff3945; }
+
+.login-popup .complete-btn:hover,
+.login-popup .exit-btn:hover,
+.register-popup .complete-btn:hover,
+.register-popup .exit-btn:hover {
+  background-color: #f50c1c; }
+
 .register-popup {
   background-color: #fff;
   padding: 20px;
@@ -375,27 +417,6 @@ a {
         width: 3em; }
       .register-popup > .flex .flex input {
         width: fit-content !important; }
-  .register-popup .complete-btn {
-    background-color: #ff3945;
-    color: #fff;
-    width: 400px;
-    border-radius: 3px;
-    padding: 10px;
-    font-size: 18px; }
-  .register-popup .exit-btn {
-    font-size: 18px;
-    color: #fff;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    text-align: center;
-    top: -10px;
-    right: -10px;
-    background-color: #ff3945; }
-  .register-popup .complete-btn:hover,
-  .register-popup .exit-btn:hover {
-    background-color: #f50c1c; }
   .register-popup .err-msg {
     color: #ff3945;
     text-align: center;
@@ -404,7 +425,8 @@ a {
 .phonecheck-popup {
   background-color: #fff;
   border-radius: 5px;
-  padding: 20px; }
+  padding: 20px;
+  position: relative; }
   .phonecheck-popup h3,
   .phonecheck-popup h4 {
     color: #360d5e; }
@@ -427,12 +449,49 @@ a {
   .phonecheck-popup .complete-btn {
     background-color: #ff3945;
     color: #fff;
-    width: 400px;
     border-radius: 3px;
     padding: 10px;
-    font-size: 18px; }
-  .phonecheck-popup .complete-btn:hover {
+    font-size: 18px;
+    width: 400px; }
+  .phonecheck-popup .exit-btn {
+    font-size: 18px;
+    color: #fff;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    text-align: center;
+    top: -10px;
+    right: -10px;
+    background-color: #ff3945; }
+  .phonecheck-popup .complete-btn:hover,
+  .phonecheck-popup .exit-btn:hover {
     background-color: #f50c1c; }
+
+.login-popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative; }
+  .login-popup h3,
+  .login-popup div {
+    color: #360d5e; }
+  .login-popup h3 {
+    font-size: 24px; }
+  .login-popup div {
+    margin: 10px 0 10px 0;
+    font-size: 16px; }
+    .login-popup div span {
+      color: #ff3945; }
+  .login-popup input {
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    width: 400px;
+    display: block;
+    border-bottom: 1px solid #c3c3c3; }
+  .login-popup input:focus {
+    border-bottom: 2px solid #c3c3c3; }
 
 .banners {
   overflow: hidden; }

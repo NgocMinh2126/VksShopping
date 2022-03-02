@@ -10,6 +10,7 @@ import Header from "../../common/Header";
 import Footer from "../../common/Footer";
 import SimilarProduct from "./child/SimilarProduct";
 import { useParams } from "react-router-dom";
+import Popup from "../../common/Popup/Popup";
 export default function ProductInfoPage(props) {
   const dispatch = useDispatch();
   const Info = useSelector(store => store.product.productInfo);
@@ -51,6 +52,7 @@ export default function ProductInfoPage(props) {
             </div>)}
         </div>
       </div>
+      <Popup />
       <SimilarProduct></SimilarProduct>
       <Footer></Footer>
     </React.Fragment>

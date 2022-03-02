@@ -5,7 +5,7 @@
   top: 0;
   left: 0;
   height: 150px;
-  z-index: 100;
+  z-index: 99;
   width: 100%;
   .top {
     height: 100px;
@@ -109,6 +109,7 @@
     .nav-bar-right {
       margin-right: 80px;
       .nav-btn {
+        background-color: $main-bg-color;
         padding-left: 20px;
       }
     }
@@ -289,6 +290,44 @@
   }
 }
 //Popup
+.login-popup,
+.register-popup {
+  .complete-btn {
+    background-color: $red-color;
+    color: #fff;
+    border-radius: 3px;
+    padding: 10px;
+    font-size: 18px;
+    width: calc(50% - 20px);
+  }
+  .back-btn {
+    background-color: $border-color-2;
+    border-radius: 3px;
+    font-size: 18px;
+    margin-right: 20px;
+    padding: 10px;
+    width: calc(50% - 20px);
+  }
+  .back-btn:hover {
+    background-color: $border-gray-color;
+  }
+  .exit-btn {
+    font-size: 18px;
+    color: #fff;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    text-align: center;
+    top: -10px;
+    right: -10px;
+    background-color: $red-color;
+  }
+  .complete-btn:hover,
+  .exit-btn:hover {
+    background-color: #f50c1c;
+  }
+}
 .register-popup {
   background-color: #fff;
   padding: 20px;
@@ -327,30 +366,6 @@
       }
     }
   }
-  .complete-btn {
-    background-color: $red-color;
-    color: #fff;
-    width: 400px;
-    border-radius: 3px;
-    padding: 10px;
-    font-size: 18px;
-  }
-  .exit-btn {
-    font-size: 18px;
-    color: #fff;
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    text-align: center;
-    top: -10px;
-    right: -10px;
-    background-color: $red-color;
-  }
-  .complete-btn:hover,
-  .exit-btn:hover {
-    background-color: #f50c1c;
-  }
   .err-msg {
     color: $red-color;
     text-align: center;
@@ -361,6 +376,7 @@
   background-color: #fff;
   border-radius: 5px;
   padding: 20px;
+  position: relative;
   h3,
   h4 {
     color: $text-color;
@@ -388,12 +404,56 @@
   .complete-btn {
     background-color: $red-color;
     color: #fff;
-    width: 400px;
     border-radius: 3px;
     padding: 10px;
     font-size: 18px;
+    width: 400px;
   }
-  .complete-btn:hover {
+  .exit-btn {
+    font-size: 18px;
+    color: #fff;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    text-align: center;
+    top: -10px;
+    right: -10px;
+    background-color: $red-color;
+  }
+  .complete-btn:hover,
+  .exit-btn:hover {
     background-color: #f50c1c;
+  }
+}
+.login-popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  position: relative;
+  h3,
+  div {
+    color: $text-color;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  div {
+    margin: 10px 0 10px 0;
+    font-size: 16px;
+    span {
+      color: $red-color;
+    }
+  }
+  input {
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    width: 400px;
+    display: block;
+    border-bottom: 1px solid $border-gray-color;
+  }
+  input:focus {
+    border-bottom: 2px solid $border-gray-color;
   }
 }
