@@ -1,15 +1,15 @@
 import { userService } from "../services/userService";
 import { appActions } from "./appActions";
 import { constant } from "../constants";
-function phoneCheck(phone) {
+function checkPhone(info) {
   return (dispatch) => {
-    userService.checkPhone(phone).then((res) => {
+    userService.checkPhone(info).then((res) => {
       if (res.status === constant.SUCCESS) {
-        dispatch(success(phone));
-        if (!res.is_registered) {
-          dispatch(appActions.changePopup(constant.REGIS_POPUP));
-        } else {
+        dispatch(success(info.phone));
+        if (res.is_registered) {
           dispatch(appActions.changePopup(constant.LOGIN_POPUP));
+        } else {
+          dispatch(appActions.changePopup(constant.REGIS_POPUP));
         }
       }
     });
@@ -18,3 +18,6 @@ function phoneCheck(phone) {
     return { type: constant.REQUEST_PHONE_CHECK, phone };
   }
 }
+export const userActions = {
+  checkPhone,
+};

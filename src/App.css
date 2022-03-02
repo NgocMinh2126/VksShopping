@@ -387,6 +387,13 @@ a {
 .register-popup .exit-btn:hover {
   background-color: #f50c1c; }
 
+.phonecheck-popup .err-msg,
+.register-popup .err-msg,
+.login-popup .err-msg {
+  color: #ff3945;
+  text-align: center;
+  margin-bottom: 8px; }
+
 .register-popup {
   background-color: #fff;
   padding: 20px;
@@ -417,10 +424,6 @@ a {
         width: 3em; }
       .register-popup > .flex .flex input {
         width: fit-content !important; }
-  .register-popup .err-msg {
-    color: #ff3945;
-    text-align: center;
-    margin-bottom: 8px; }
 
 .phonecheck-popup {
   background-color: #fff;

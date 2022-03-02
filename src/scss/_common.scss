@@ -328,6 +328,15 @@
     background-color: #f50c1c;
   }
 }
+.phonecheck-popup,
+.register-popup,
+.login-popup {
+  .err-msg {
+    color: $red-color;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+}
 .register-popup {
   background-color: #fff;
   padding: 20px;
@@ -365,11 +374,6 @@
         width: fit-content !important;
       }
     }
-  }
-  .err-msg {
-    color: $red-color;
-    text-align: center;
-    margin-bottom: 8px;
   }
 }
 .phonecheck-popup {

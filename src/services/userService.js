@@ -1,11 +1,11 @@
 import { constant } from "../constants";
-function checkPhone(phone) {
+function checkPhone(info) {
   const requestObj = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(phone),
+    body: JSON.stringify(info),
   };
   return fetch(constant.API_URL + "/user/phone_check", requestObj)
     .then((res) => res.json())
