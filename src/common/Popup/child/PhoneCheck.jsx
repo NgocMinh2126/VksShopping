@@ -1,6 +1,4 @@
 import { useDispatch } from "react-redux";
-import { appActions } from "../../../actions/appActions";
-import { constant } from "../../../constants";
 import { useState } from "react"
 import { userActions } from "../../../actions/userActions.";
 export default function PhoneCheck(props) {
@@ -9,6 +7,7 @@ export default function PhoneCheck(props) {
   const [phone, setPhone] = useState("");
   const [errMsg, setErrMsg] = useState("");
   function handleInputChange(e) {
+    setErrMsg("");
     setPhone(e.target.value);
   }
   function handleCompletebtn() {

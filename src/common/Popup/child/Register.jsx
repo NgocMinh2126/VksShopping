@@ -3,10 +3,12 @@ import { useDispatch } from "react-redux";
 import { constant } from "../../../constants";
 import { userActions } from "../../../actions/userActions.";
 import { useSelector } from "react-redux";
+import { appActions } from "../../../actions/appActions";
 export default function Register(props) {
   let { closePopup } = props
   const dispatch = useDispatch();
   const phone = useSelector(store => store.user.phone);
+  const message = useSelector(store => store.user.message);
   const [errMsg, setErrMsg] = useState("");
   const [regisInfo, setRegisInfo] = useState({
     phone: phone,
@@ -16,6 +18,7 @@ export default function Register(props) {
     sex: 1,
   });
   function handleInputChange(e) {
+    setErrMsg("");
     let info = { ...regisInfo };
     info[e.target.name] = e.target.value;
     if (e.target.name === "sex") {
@@ -42,6 +45,9 @@ export default function Register(props) {
     console.log(JSON.stringify(regisInfo));
     setErrMsg("");
     dispatch(userActions.register(regisInfo));
+  }
+  function handleBack() {
+    dispatch(appActions.changePopup(constant.PHONE_POPUP));
   }
   return (
     <div className="modal center">
@@ -107,7 +113,10 @@ export default function Register(props) {
         </div>
         <div className="err-msg">{errMsg}</div>
         <div className="flex">
-          <button className="back-btn">Quay lại</button>
+          <button
+            onClick={handleBack}
+            className="back-btn">Quay lại
+          </button>
           <button
             className="complete-btn"
             onClick={handleCompleteRes}>Đăng ký

@@ -1,6 +1,7 @@
 import { constant } from "../constants";
 
 const initialState = {
+  message: "",
   popup: {
     message: "",
     type: constant.NO_POPUP,

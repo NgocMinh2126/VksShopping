@@ -36,7 +36,28 @@ function register(userInfo) {
     return { type: constant.REGIS_FAILURE, message };
   }
 }
+function login(userInfo) {
+  return (dispatch) => {
+    userService.login(userInfo).then((res) => {
+      if (res.status === constant.SUCCESS) {
+        dispatch(success(res.token, res.data));
+      } else {
+        dispatch(failure(res.msg));
+      }
+    });
+  };
+  function success(token, userInfo) {
+    localStorage.setItem("token", JSON.stringify(token));
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    window.location.reload();
+    return { type: constant.LOGIN_SUCCESS, token };
+  }
+  function failure(message) {
+    return { type: constant.LOGIN_FAILURE, message };
+  }
+}
 export const userActions = {
   checkPhone,
   register,
+  login,
 };

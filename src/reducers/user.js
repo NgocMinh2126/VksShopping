@@ -15,13 +15,15 @@ export function user(state = initialState, action) {
         phone: action.phone,
       };
     }
-    case constant.REGIS_SUCCESS: {
+    case constant.REGIS_SUCCESS:
+    case constant.LOGIN_SUCCESS: {
       return {
         ...state,
         token: action.token,
       };
     }
-    case constant.REGIS_FAILURE: {
+    case constant.REGIS_FAILURE:
+    case constant.LOGIN_FAILURE: {
       return {
         ...state,
         message: action.message,
