@@ -17,12 +17,25 @@ function checkPhone(info) {
       return {};
     });
 }
-function addUser(userinfo) {
+function register(userinfo) {
   const requestObj = {
     method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(userinfo),
   };
+  return fetch(constant.API_URL + "/user/register", requestObj)
+    .then((res) => res.json())
+    .then((json) => {
+      return json;
+    })
+    .catch((err) => {
+      console.log(err);
+      return {};
+    });
 }
 export const userService = {
-  addUser,
+  register,
   checkPhone,
 };

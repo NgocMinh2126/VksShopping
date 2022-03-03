@@ -1,18 +1,23 @@
 import { useState } from "react"
+import { useDispatch } from "react-redux";
+import { constant } from "../../../constants";
+import { userActions } from "../../../actions/userActions.";
+import { useSelector } from "react-redux";
 export default function Register(props) {
   let { closePopup } = props
+  const dispatch = useDispatch();
+  const phone = useSelector(store => store.user.phone);
   const [errMsg, setErrMsg] = useState("");
   const [regisInfo, setRegisInfo] = useState({
+    phone: phone,
     name: "",
-    mail: "",
+    email: "",
     password: "",
     sex: 1,
   });
   function handleInputChange(e) {
     let info = { ...regisInfo };
-    if (e.target.name !== "password") {
-      info[e.target.name] = e.target.value;
-    }
+    info[e.target.name] = e.target.value;
     if (e.target.name === "sex") {
       info.sex = parseInt(e.target.value);
     }
@@ -20,17 +25,23 @@ export default function Register(props) {
       if (info.password !== info.retype_pass) {
         setErrMsg("Mật khẩu không khớp");
       } else {
-        info.password = e.target.value;
         setErrMsg("");
       }
     }
     setRegisInfo(info);
   }
   function handleCompleteRes() {
-    if (!regisInfo.mail || !regisInfo.name || !regisInfo.password) {
+    if (!regisInfo.email || !regisInfo.name || !regisInfo.password) {
       setErrMsg("Vui lòng điền đầy đủ thông tin");
       return;
     }
+    if (regisInfo.password.length < 6) {
+      setErrMsg("Mật khẩu quá ngắn. Độ dài tối thiểu là 6 ký tự.");
+      return;
+    }
+    console.log(JSON.stringify(regisInfo));
+    setErrMsg("");
+    dispatch(userActions.register(regisInfo));
   }
   return (
     <div className="modal center">
@@ -43,7 +54,7 @@ export default function Register(props) {
           type="text"
           onChange={handleInputChange} />
         <input
-          name="mail"
+          name="email"
           placeholder="Mail"
           type="text"
           onChange={handleInputChange} />
@@ -97,7 +108,10 @@ export default function Register(props) {
         <div className="err-msg">{errMsg}</div>
         <div className="flex">
           <button className="back-btn">Quay lại</button>
-          <button className="complete-btn">Đăng nhập</button>
+          <button
+            className="complete-btn"
+            onClick={handleCompleteRes}>Đăng ký
+          </button>
         </div>
         <button className="exit-btn" onClick={closePopup}>
           <i className="fa-solid fa-xmark"></i>

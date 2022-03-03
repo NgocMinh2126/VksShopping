@@ -18,6 +18,25 @@ function checkPhone(info) {
     return { type: constant.REQUEST_PHONE_CHECK, phone };
   }
 }
+function register(userInfo) {
+  return (dispatch) => {
+    userService.register(userInfo).then((res) => {
+      if (res.status === constant.SUCCESS) {
+        dispatch(success(res.token, res.data));
+      } else dispatch(failure(res.msg));
+    });
+  };
+  function success(token, userInfo) {
+    localStorage.setItem("token", JSON.stringify(token));
+    localStorage.setItem("userInfo", JSON.stringify(userInfo));
+    window.location.reload();
+    return { type: constant.REGIS_SUCCESS, token };
+  }
+  function failure(message) {
+    return { type: constant.REGIS_FAILURE, message };
+  }
+}
 export const userActions = {
   checkPhone,
+  register,
 };
