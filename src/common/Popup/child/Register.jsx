@@ -9,6 +9,7 @@ export default function Register(props) {
   const dispatch = useDispatch();
   const phone = useSelector(store => store.user.phone);
   const message = useSelector(store => store.user.message);
+  const [isRequest, setIsRequest] = useState(false);
   const [errMsg, setErrMsg] = useState("");
   const [regisInfo, setRegisInfo] = useState({
     phone: phone,
@@ -19,6 +20,8 @@ export default function Register(props) {
   });
   function handleInputChange(e) {
     setErrMsg("");
+    dispatch({ type: constant.CLEAR_MESSAGE });
+    setIsRequest(false);
     let info = { ...regisInfo };
     info[e.target.name] = e.target.value;
     if (e.target.name === "sex") {
@@ -44,6 +47,7 @@ export default function Register(props) {
     }
     console.log(JSON.stringify(regisInfo));
     setErrMsg("");
+    setIsRequest(true);
     dispatch(userActions.register(regisInfo));
   }
   function handleBack() {
@@ -111,7 +115,15 @@ export default function Register(props) {
             </div>
           </div>
         </div>
-        <div className="err-msg">{errMsg}</div>
+        {
+          errMsg && <div className="err-msg">{errMsg}</div>
+        }
+        {
+          !errMsg && !message && isRequest && <div className="err-msg" style={{ color: "#360d5e" }}>Vui lòng chờ...</div>
+        }
+        {
+          isRequest && message && !errMsg && <div className="err-msg">{message}</div>
+        }
         <div className="flex">
           <button
             onClick={handleBack}

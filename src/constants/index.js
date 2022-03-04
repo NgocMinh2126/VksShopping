@@ -28,4 +28,6 @@ export const constant = {
   PHONE_POPUP: "PHONE_POPUP",
   LOGIN_POPUP: "LOGIN_POPUP",
   REGIS_POPUP: "REGIS_POPOP",
+  //message
+  CLEAR_MESSAGE: "CLEAR_MESSAGE",
 };

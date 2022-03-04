@@ -11,11 +11,14 @@ export default function Login(props) {
   const phone = useSelector(store => store.user.phone);
   const message = useSelector(store => store.user.message);
   const [errMsg, setErrMsg] = useState("");
+  const [isRequest, setIsRequest] = useState(false);
   const [userInfo, setUserInfo] = useState({
     phone: phone,
     password: ""
   });
   function handleInputChange(e) {
+    setIsRequest(false);
+    dispatch({ type: constant.CLEAR_MESSAGE });
     setErrMsg("");
     let info = userInfo;
     info.password = e.target.value;
@@ -24,10 +27,13 @@ export default function Login(props) {
   function handleLogin() {
     if (userInfo.password.length === 0) {
       setErrMsg("Vui lòng nhập mật khẩu!");
+      setIsRequest(false);
       return;
     }
+    setErrMsg("");
+    setIsRequest(true);
     console.log(JSON.stringify(userInfo));
-    setErrMsg(message);
+    dispatch({ type: constant.CLEAR_MESSAGE });
     dispatch(userActions.login(userInfo));
   }
   function handleBack() {
@@ -45,7 +51,15 @@ export default function Login(props) {
           type="password"
           placeholder="Nhập mật khẩu"
           onChange={handleInputChange} />
-        <div className="err-msg">{errMsg}</div>
+        {
+          errMsg && <div className="err-msg">{errMsg}</div>
+        }
+        {
+          !errMsg && !message && isRequest && <div className="err-msg" style={{ color: "#360d5e" }}>Vui lòng chờ...</div>
+        }
+        {
+          isRequest && message && !errMsg && <div className="err-msg">{message}</div>
+        }
         <div className="flex">
           <button
             onClick={handleBack}

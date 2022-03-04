@@ -29,6 +29,12 @@ export function user(state = initialState, action) {
         message: action.message,
       };
     }
+    case constant.CLEAR_MESSAGE: {
+      return {
+        state,
+        message: "",
+      };
+    }
     default:
       return state;
   }
