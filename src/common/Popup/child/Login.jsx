@@ -39,9 +39,14 @@ export default function Login(props) {
   function handleBack() {
     dispatch(appActions.changePopup(constant.PHONE_POPUP));
   }
+
+  function handleEnterKey(e) {
+    if (e.key === "Enter")
+      handleLogin()
+  }
   return (
     <div className="modal center">
-      <div className="login-popup">
+      <div className="login-popup" onKeyDown={handleEnterKey}>
         <h3>Nhập mật khẩu</h3>
         <div >Vui lòng nhập mật khẩu của số điện thoại
           <span> {phone}</span>

@@ -48,6 +48,7 @@ export default function Register(props) {
     console.log(JSON.stringify(regisInfo));
     setErrMsg("");
     setIsRequest(true);
+    dispatch({ type: constant.CLEAR_MESSAGE });
     dispatch(userActions.register(regisInfo));
   }
   function handleBack() {
@@ -55,7 +56,7 @@ export default function Register(props) {
   }
   return (
     <div className="modal center">
-      <div className="register-popup">
+      <div className="register-popup" >
         <h4>Nhập thông tin đăng ký</h4>
         <input
           autoComplete="off"

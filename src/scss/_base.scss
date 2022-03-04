@@ -45,6 +45,19 @@ a {
 .hide-scroll::-webkit-scrollbar {
   display: none;
 }
+.dropdown-menu {
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
+  z-index: 7;
+  background-color: white;
+  border-radius: 0.25em;
+  box-shadow: 0 0 8px 0 $border-gray-color;
+}
+.dropdown-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
 .img-container {
   display: block;
   position: relative;

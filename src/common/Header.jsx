@@ -1,11 +1,71 @@
-import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { appActions } from "../actions/appActions";
 import { constant } from "../constants";
-//import { Link } from "react-router-dom";
 export default function Header() {
+  const token = useSelector((state) => state.user.token);
+  const userInfo = useSelector((state) => state.user.userInfo);
+  const [dropdownActive, setDropdownActive] = useState("");
   const dispatch = useDispatch();
   function handleLogin() {
     dispatch(appActions.changePopup(constant.PHONE_POPUP))
+  }
+  function createUserInfo() {
+    if (token) {
+      return (
+        <div className="nav-bar-right">
+          <div className="header-dropdown">
+            <button
+              onClick={() => { handleStateDropdown("myaccount") }}
+              className="nav-btn">
+              Tài khoản của tôi
+              <i style={{ marginLeft: "0.5em" }}
+                className="fas fa-caret-down" ></i>
+            </button>
+            <div className=
+              {dropdownActive === "myaccount" ?
+                "dropdown-menu menu active" :
+                "dropdown-menu menu"}>
+              <h3>{userInfo.name}</h3>
+              <ul>
+                <li className="flex">
+                  <i className="fa-solid fa-heart"></i>
+                  <a href="/">Sản phẩm yêu thích</a>
+                </li>
+                <li className="flex">
+                  <i className="fa-solid fa-arrows-rotate"></i>
+                  <a href="/">Cập nhật thông tin</a>
+                </li>
+                <li className="flex">
+                  <i className="fa-solid fa-arrow-right-from-bracket"></i>
+                  <a href="/">Thoát tài khoản</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    } else {
+      return (
+        <div className="nav-bar-right">
+          <button
+            className="nav-btn"
+            onClick={handleLogin}>Đăng nhập
+          </button>
+          <button
+            className="nav-btn borderleft"
+            onClick={handleLogin}>Đăng ký
+          </button>
+        </div>
+      )
+    }
+  }
+  function handleStateDropdown(type) {
+    if (dropdownActive === type) {
+      setDropdownActive("");
+    } else {
+      setDropdownActive(type);
+    }
   }
   return (
     <div className="header-container">
@@ -45,16 +105,7 @@ export default function Header() {
             Tin tức
           </a>
         </div>
-        <div className="nav-bar-right">
-          <button
-            className="nav-btn"
-            onClick={handleLogin}>Đăng nhập
-          </button>
-          <button
-            className="nav-btn borderleft"
-            onClick={handleLogin}>Đăng ký
-          </button>
-        </div>
+        {createUserInfo()}
       </div>
     </div>
   );
