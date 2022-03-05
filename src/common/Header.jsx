@@ -1,17 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { appActions } from "../actions/appActions";
+import { cartActions } from "../actions/cartActions";
+import { userActions } from "../actions/userActions.";
 import { constant } from "../constants";
+import Categories from "./Categories";
 export default function Header() {
-  const token = useSelector((state) => state.user.token);
-  const userInfo = useSelector((state) => state.user.userInfo);
+  const token = useSelector(store => store.user.token);
+  const categories = useSelector(store => store.category.listCate);
+  const userInfo = useSelector(store => store.user.userInfo);
+  const cartInfo = useSelector(store => store.cart.cartInfo);
   const [dropdownActive, setDropdownActive] = useState("");
   const dispatch = useDispatch();
+  useEffect(() => {
+    if (token && cartInfo.status === constant.LOADING) {
+      dispatch(cartActions.getCartInfo());
+    }
+    console.log(cartInfo.items);
+  })
   function handleLogin() {
     dispatch(appActions.changePopup(constant.PHONE_POPUP))
   }
   function createUserInfo() {
     if (token) {
+      console.log(token);
       return (
         <div className="nav-bar-right">
           <div className="header-dropdown">
@@ -30,15 +42,17 @@ export default function Header() {
               <ul>
                 <li className="flex">
                   <i className="fa-solid fa-heart"></i>
-                  <a href="/">Sản phẩm yêu thích</a>
+                  Sản phẩm yêu thích
                 </li>
                 <li className="flex">
                   <i className="fa-solid fa-arrows-rotate"></i>
-                  <a href="/">Cập nhật thông tin</a>
+                  Cập nhật thông tin
                 </li>
-                <li className="flex">
+                <li
+                  onClick={handleLogout}
+                  className="flex">
                   <i className="fa-solid fa-arrow-right-from-bracket"></i>
-                  <a href="/">Thoát tài khoản</a>
+                  Thoát tài khoản
                 </li>
               </ul>
             </div>
@@ -67,17 +81,32 @@ export default function Header() {
       setDropdownActive(type);
     }
   }
+  function createCategory() {
+    return (<div
+      className={dropdownActive === "categories"
+        ? "dropdown-menu menu active" :
+        "dropdown-menu menu"}>
+      <h3>Danh sách sản phẩm</h3>
+      <Categories />
+    </div>);
+  }
+  function handleLogout() {
+    dispatch(userActions.logout());
+  }
   return (
     <div className="header-container">
       <div className="top flex">
         <div className="logo">
           <img src="/img/vkookshopping.png" alt="" />
         </div>
-        <div className="category-btn-container">
-          <button className="category-btn flex">
+        <div className="category-btn-container header-dropdown">
+          <button
+            onClick={() => { handleStateDropdown("categories") }}
+            className="category-btn flex">
             <i className="fa-solid fa-bars"></i>
             <i className="fa-solid fa-caret-down"></i>
           </button>
+          {createCategory()}
         </div>
         <div className="search-bar">
           <input placeholder="Tìm kiếm sản phẩm" type="text" />
@@ -88,7 +117,7 @@ export default function Header() {
         <a href="/" className="cart flex">
           <i className="fa-solid fa-cart-shopping"></i>
           <div className="cart-right">
-            <div className="number-of-product">106</div>
+            <div className="number-of-product">{token ? cartInfo.items.length : 0}</div>
             <div className="title">Giỏ hàng</div>
           </div>
         </a>

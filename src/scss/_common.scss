@@ -20,6 +20,10 @@
     }
     .category-btn-container {
       align-items: center;
+      .menu {
+        width: fit-content;
+        padding: 0;
+      }
       .category-btn {
         color: $text-color;
         font-size: 20px;
@@ -129,7 +133,7 @@
     transform: rotate(45deg);
   }
   .menu {
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     top: 5em;
     right: 0;
@@ -143,26 +147,21 @@
       border-bottom: 1px solid $border-gray-color;
     }
     li {
+      cursor: pointer;
       font-size: 17px;
       padding: 10px;
       align-items: center;
-      a {
-        color: $text-color;
-        margin-left: 10px;
-      }
       i {
         color: $text-color;
         opacity: 0.8;
+        margin-right: 10px;
       }
     }
     li:hover {
+      color: $hover-color;
       box-shadow: 0 0 8px 0 rgb(212, 212, 212);
       i {
         opacity: 1;
-      }
-      a,
-      i {
-        color: $hover-color;
       }
     }
   }
@@ -244,6 +243,7 @@
 }
 .category-container {
   width: 300px;
+  height: 100%;
   border-radius: 3px;
   border: 1px solid $border-gray-color;
   overflow: scroll;

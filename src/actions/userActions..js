@@ -56,8 +56,17 @@ function login(userInfo) {
     return { type: constant.LOGIN_FAILURE, message };
   }
 }
+function logout() {
+  localStorage.removeItem("token");
+  localStorage.removeItem("userInfo");
+  return (dispatch) => {
+    dispatch({ type: constant.LOGOUT });
+    window.location.reload();
+  };
+}
 export const userActions = {
   checkPhone,
   register,
   login,
+  logout,
 };

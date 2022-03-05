@@ -141,6 +141,9 @@ a {
         width: 200px; }
     .header-container .top .category-btn-container {
       align-items: center; }
+      .header-container .top .category-btn-container .menu {
+        width: fit-content;
+        padding: 0; }
       .header-container .top .category-btn-container .category-btn {
         color: #360d5e;
         font-size: 20px;
@@ -229,7 +232,7 @@ a {
     right: 20px;
     transform: rotate(45deg); }
   .header-container .menu {
-    padding: 20px;
+    padding: 10px;
     position: absolute;
     top: 5em;
     right: 0;
@@ -242,22 +245,19 @@ a {
       text-align: center;
       border-bottom: 1px solid #c3c3c3; }
     .header-container .menu li {
+      cursor: pointer;
       font-size: 17px;
       padding: 10px;
       align-items: center; }
-      .header-container .menu li a {
-        color: #360d5e;
-        margin-left: 10px; }
       .header-container .menu li i {
         color: #360d5e;
-        opacity: 0.8; }
+        opacity: 0.8;
+        margin-right: 10px; }
     .header-container .menu li:hover {
+      color: #9543e6;
       box-shadow: 0 0 8px 0 #d4d4d4; }
       .header-container .menu li:hover i {
         opacity: 1; }
-      .header-container .menu li:hover a,
-      .header-container .menu li:hover i {
-        color: #9543e6; }
   .header-container .menu.active {
     top: 3em; }
 
@@ -317,6 +317,7 @@ a {
 
 .category-container {
   width: 300px;
+  height: 100%;
   border-radius: 3px;
   border: 1px solid #c3c3c3;
   overflow: scroll; }

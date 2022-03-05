@@ -21,7 +21,7 @@ export default function Categories() {
     ))
   }
   return (!listCate.data ? <div></div> :
-    <div className="category-container hide-scroll">
+    <div className="category-container hide-scroll ">
       {createCategorycard(listCate.data)}
     </div>
   );

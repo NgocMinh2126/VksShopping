@@ -3,7 +3,9 @@ const userInfo = localStorage.getItem("userInfo");
 const token = localStorage.getItem("token");
 const initialState = {
   phone: "",
-  userInfo: userInfo ? JSON.parse(userInfo) : null,
+  userInfo: userInfo
+    ? { ...JSON.parse(userInfo), status: constant.SUCCESS }
+    : { status: constant.LOADING },
   token: token ? JSON.parse(token) : null,
   message: "",
 };
@@ -33,6 +35,15 @@ export function user(state = initialState, action) {
       return {
         state,
         message: "",
+      };
+    }
+    case constant.LOGOUT: {
+      return {
+        ...state,
+        token: null,
+        userInfo: {
+          status: constant.LOADING,
+        },
       };
     }
     default:

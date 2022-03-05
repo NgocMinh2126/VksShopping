@@ -29,11 +29,11 @@ export default function ProductPage() {
       <div className="bg">
         <div className=" flex page">
           <div className="flex product-container ">
-            <div className="category hide-scroll">
+            <div className="category">
               <div className="name">
                 Danh mục sản phẩm
               </div>
-              <div>
+              <div style={{ height: "300px" }}>
                 <Categories ></Categories>
               </div>
             </div>
