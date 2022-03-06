@@ -3,7 +3,7 @@ import Header from "../../common/Header"
 import Footer from "../../common/Footer"
 import Categories from "../../common/Categories"
 import PageBreak from "../../common/PageBreak"
-import ListProducts from "./child/ListProduct";
+import ListProducts from "./child/ListProducts"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react"
 import { constant } from "../../constants";
@@ -11,16 +11,17 @@ import { productActions } from "../../actions/productActions";
 import { useSearchParams } from "react-router-dom"
 import Popup from "../../common/Popup/Popup"
 export default function ProductPage() {
-  let page = 1;
+  let link = "";
   const dispacth = useDispatch();
   const listProduct = useSelector((store) => store.product.listProduct);
   const [params, setParam] = useSearchParams();
   if (params.get("page") != null) {
-    page = parseInt(params.get("page"));
+    link = params.toString();
+    console.log("duong dan" + link);
   }
   useEffect(() => {
     if (listProduct.status === constant.LOADING) {
-      dispacth(productActions.getProduct(page));
+      dispacth(productActions.getProduct(link));
     } else console.log(listProduct.data);
   });
   return (

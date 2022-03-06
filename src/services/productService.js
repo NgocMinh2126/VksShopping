@@ -1,9 +1,9 @@
 import { constant } from "../constants";
-function getProduct(page) {
+function getProduct(queryString) {
   const requestObj = {
     method: "GET",
   };
-  return fetch(constant.API_URL + "/product?page=" + page, requestObj)
+  return fetch(constant.API_URL + "/product?" + queryString, requestObj)
     .then((res) => res.json())
     .then((json) => {
       console.log(json);

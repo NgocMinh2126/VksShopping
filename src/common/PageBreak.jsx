@@ -1,10 +1,13 @@
 import { useSearchParams } from "react-router-dom";
+import queryString from "query-string";
 export default function PageBreak(props) {
   let { totalpage } = props;
-  let currentpage = 1
+  let currentpage = 1;
   const [searchparam, setSearchPage] = useSearchParams(1);
+  let queryObj;
   if (searchparam.get("page") != null) {
     currentpage = parseInt(searchparam.get("page"));
+    queryObj = queryString.parse(searchparam.toString());
   }
   console.log("current page: " + currentpage);
   function createPage(current, total) {
@@ -41,7 +44,8 @@ export default function PageBreak(props) {
     }
   }
   function handlePage(page) {
-    window.location.href = window.location.origin + window.location.pathname + "?page=" + page;
+    let obj = { ...queryObj, page: page }
+    window.location.href = window.location.origin + window.location.pathname + "?" + queryString.stringify(obj);
   }
   return (
     totalpage < 2 ? (
