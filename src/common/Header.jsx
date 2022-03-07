@@ -7,7 +7,6 @@ import { constant } from "../constants";
 import Categories from "./Categories";
 export default function Header() {
   const token = useSelector(store => store.user.token);
-  const categories = useSelector(store => store.category.listCate);
   const userInfo = useSelector(store => store.user.userInfo);
   const cartInfo = useSelector(store => store.cart.cartInfo);
   const [dropdownActive, setDropdownActive] = useState("");

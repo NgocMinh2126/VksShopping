@@ -11,7 +11,6 @@ function App() {
       <Route path="/product/:id" element={<ProductInfoPage />}></Route>
       <Route path="/cart" element={<CartInfoPage />}></Route>
     </Routes>
-    //<Popup></Popup>
   );
 }
 

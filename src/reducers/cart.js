@@ -7,7 +7,7 @@ const initialState = {
       }
     : {
         status: constant.LOADING,
-        item: [],
+        items: [],
       },
 };
 export function cart(state = initialState, action) {
@@ -24,9 +24,14 @@ export function cart(state = initialState, action) {
       return {
         ...state,
         cartInfo: {
-          item: [],
+          items: [],
           status: constant.FAILURE,
         },
+      };
+    case constant.ADD_CART_SUCCESS:
+      return {
+        ...state,
+        cartInfo: action.data,
       };
     default:
       return state;

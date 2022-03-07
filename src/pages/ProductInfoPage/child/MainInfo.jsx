@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../../actions/cartActions";
 import { helper } from "../../../helper";
 export default function MainInfo(props) {
-  let { name, image, rating, luotdanhgia, sold, priceafter, pricebefore, quantity } = props;
-
+  let { _id, name, image, rating, luotdanhgia, sold, priceafter, pricebefore, quantity } = props;
+  const dispatch = useDispatch();
 
   const [selectnumber, setQuantity] = useState(1);
   function increaseQuantity() {
@@ -14,6 +16,13 @@ export default function MainInfo(props) {
     if (selectnumber > 1) {
       return setQuantity(selectnumber - 1);
     }
+  }
+  function handleAddCart() {
+    let product = {
+      quantity: selectnumber,
+      product_id: _id
+    }
+    dispatch(cartActions.addCart(product));
   }
   return (
     <div>
@@ -61,7 +70,7 @@ export default function MainInfo(props) {
                 <button onClick={increaseQuantity} >+</button>
               )}
             </div>
-            <button id="add-cart-btn">Thêm vào giỏ hàng</button>
+            <button id="add-cart-btn" onClick={handleAddCart}>Thêm vào giỏ hàng</button>
           </div>
         </div>
       </div>

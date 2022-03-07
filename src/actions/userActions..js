@@ -59,6 +59,7 @@ function login(userInfo) {
 function logout() {
   localStorage.removeItem("token");
   localStorage.removeItem("userInfo");
+  localStorage.removeItem("cartInfo");
   return (dispatch) => {
     dispatch({ type: constant.LOGOUT });
     window.location.reload();

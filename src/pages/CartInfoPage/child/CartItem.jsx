@@ -1,23 +1,17 @@
 import { useState } from "react"
 import { helper } from "../../../helper"
 export default function CartItem(props) {
-  //let {id,img,name,price}=props;
-  let info = {
-    name: "Surface Book 2 15 Inch Core I7 Ram 16Gb 512Gb (New) - Hàng chính hãng",
-    img: "https://i.ibb.co/RvCmfq7/8fcbd6abc1ac716d07b3593f9b97f53b.jpg",
-    amount: 2,
-    after_discount_price: 58000000,
-    quantity: 10
-  }
+  let { _id, img, name, after_discount_price, quantity, amount } = props;
+  console.log(amount);
 
-  const [selectNumber, setQuantity] = useState(info.amount);
+  const [selectNumber, setQuantity] = useState(amount);
   function descreaseQuantity() {
     if (selectNumber > 1) {
       setQuantity(selectNumber - 1);
     }
   }
   function increaseQuantity() {
-    if (selectNumber < info.quantity) {
+    if (selectNumber < quantity) {
       setQuantity(selectNumber + 1);
     }
   }
@@ -25,21 +19,23 @@ export default function CartItem(props) {
     <div className="cartitem-container flex">
       <div className="img">
         <div className="img-container">
-          <img src={info.img} alt="" />
+          <img src={img} alt="" />
         </div>
       </div>
-      <a className="title" href={"/product/" + info.id}>{info.name}</a>
-      <div className="price">{helper.priceBreak(info.after_discount_price)}₫ </div>
+      <a className="title" href={"/product/" + _id}>{name}</a>
+      <div className="price">{helper.priceBreak(after_discount_price)}₫ </div>
       <div className="flex amount">
         {selectNumber > 1 ?
           <button onClick={descreaseQuantity}>-</button> :
-          <button onClick={descreaseQuantity} disabled="true">-</button>}
+          <button onClick={descreaseQuantity} disabled={true}>-</button>}
         <input type="number" value={selectNumber} />
-        {selectNumber < info.quantity ?
+        {selectNumber < quantity ?
           <button onClick={increaseQuantity}>+</button> :
-          <button onClick={increaseQuantity} disabled="true">+</button>}
+          <button onClick={increaseQuantity} disabled={true}>+</button>}
       </div>
-      <button className="delete-btn"><i className="fa-solid fa-xmark"></i></button>
+      <button className="delete-btn">
+        <i className="fa-solid fa-xmark"></i>
+      </button>
     </div>
   )
 }

@@ -36,6 +36,7 @@ export default function ProductInfoPage(props) {
           {!Info.data ? (<div></div>) : (
             <div>
               <MainInfo
+                _id={Info.data._id}
                 name={Info.data.name}
                 image={Info.data.images}
                 rating={Info.data.rating.stars}
