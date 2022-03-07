@@ -112,7 +112,7 @@ export default function Header() {
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
-        <a href="/" className="cart flex">
+        <a href="/cart" className="cart flex">
           <i className="fa-solid fa-cart-shopping"></i>
           <div className="cart-right">
             <div className="number-of-product">{token ? cartInfo.items.length : 0}</div>

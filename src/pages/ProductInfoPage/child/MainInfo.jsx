@@ -4,15 +4,15 @@ export default function MainInfo(props) {
   let { name, image, rating, luotdanhgia, sold, priceafter, pricebefore, quantity } = props;
 
 
-  const [selectnumber, setAmount] = useState(1);
-  function increaseAmount() {
+  const [selectnumber, setQuantity] = useState(1);
+  function increaseQuantity() {
     if (selectnumber <= quantity) {
-      return setAmount(selectnumber + 1);
+      return setQuantity(selectnumber + 1);
     }
   }
-  function descreaseAmount() {
+  function descreaseQuantity() {
     if (selectnumber > 1) {
-      return setAmount(selectnumber - 1);
+      return setQuantity(selectnumber - 1);
     }
   }
   return (
@@ -50,15 +50,15 @@ export default function MainInfo(props) {
             Số lượng <br />
             <div className="flex">
               {selectnumber <= 1 ? (
-                <button onClick={descreaseAmount} disabled={true}>-</button>
+                <button onClick={descreaseQuantity} disabled={true}>-</button>
               ) : (
-                <button onClick={descreaseAmount}>-</button>
+                <button onClick={descreaseQuantity}>-</button>
               )}
               <input type="number" value={selectnumber} />
               {selectnumber >= quantity ? (
-                <button onClick={increaseAmount} disabled={true}>+</button>
+                <button onClick={increaseQuantity} disabled={true}>+</button>
               ) : (
-                <button onClick={increaseAmount} >+</button>
+                <button onClick={increaseQuantity} >+</button>
               )}
             </div>
             <button id="add-cart-btn">Thêm vào giỏ hàng</button>
