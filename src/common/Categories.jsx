@@ -11,13 +11,11 @@ export default function Categories() {
   useEffect(() => {
     if (listCate.status === "LOADING") {
       dispatch(categoryActions.getCategories());
-    } else {
-      console.log(listCate);
     }
   })
   function createCategorycard(data) {
     return data.map((v) => (
-      <Categorycard key={v._id} image={v.image} name={v.name}></Categorycard>
+      <Categorycard key={v._id} image={v.image} name={v.name} id={v._id}></Categorycard>
     ))
   }
   return (!listCate.data ? <div></div> :

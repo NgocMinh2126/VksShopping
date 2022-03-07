@@ -16,14 +16,12 @@ export default function Header() {
     if (token && cartInfo.status === constant.LOADING) {
       dispatch(cartActions.getCartInfo());
     }
-    console.log(cartInfo.items);
   })
   function handleLogin() {
     dispatch(appActions.changePopup(constant.PHONE_POPUP))
   }
   function createUserInfo() {
     if (token) {
-      console.log(token);
       return (
         <div className="nav-bar-right">
           <div className="header-dropdown">

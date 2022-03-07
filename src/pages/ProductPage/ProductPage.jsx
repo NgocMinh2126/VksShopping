@@ -15,10 +15,7 @@ export default function ProductPage() {
   const dispacth = useDispatch();
   const listProduct = useSelector((store) => store.product.listProduct);
   const [params, setParam] = useSearchParams();
-  if (params.get("page") != null) {
-    link = params.toString();
-    console.log("duong dan" + link);
-  }
+  link = params.toString();
   useEffect(() => {
     if (listProduct.status === constant.LOADING) {
       dispacth(productActions.getProduct(link));
