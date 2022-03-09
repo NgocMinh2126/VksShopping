@@ -19,7 +19,8 @@ export default function CartInfoPage(props) {
             amount={items_in_time[i].quantity}
             quantity={v.quantity}
             img={v.images}
-            after_discount_price={v.after_discount_price} />
+            after_discount_price={v.after_discount_price}
+            items_in_time_id={items_in_time[i]._id} />
         );
       })
     }

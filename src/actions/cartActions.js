@@ -1,7 +1,7 @@
 import { constant } from "../constants";
 import { cartService } from "../services/cartService";
+import { appActions } from "./appActions";
 function getCartInfo() {
-  console.log("hihi");
   return (dispacth) => {
     cartService.getCartInfo().then((res) => {
       if (res.status === constant.SUCCESS) {
@@ -33,7 +33,30 @@ function addCart(product) {
   }
   function failure() {}
 }
+function changeQuantity(product) {
+  return (dispatch) => {
+    cartService.changeQuantity(product).then((res) => {
+      if (res.status === constant.SUCCESS) {
+        dispatch(success(res.data));
+        if (product.quantity === 0) {
+          dispatch(
+            appActions.changePopup(
+              constant.MESSAGE_POPUP,
+              "Đã xóa sản phẩm khỏi giỏ hàng"
+            )
+          );
+        }
+      }
+    });
+  };
+  function success(data) {
+    localStorage.setItem("cartInfo", JSON.stringify(data));
+
+    return { type: constant.ADD_CART_SUCCESS, data };
+  }
+}
 export const cartActions = {
   getCartInfo,
   addCart,
+  changeQuantity,
 };

@@ -5,6 +5,7 @@ const initialState = {
   popup: {
     message: "",
     type: constant.NO_POPUP,
+    additionalInfo: {},
   },
 };
 export function app(state = initialState, action) {
@@ -15,6 +16,7 @@ export function app(state = initialState, action) {
         popup: {
           message: action.message,
           type: action.popupType,
+          additionalInfo: action.additionalInfo,
         },
       };
     default:

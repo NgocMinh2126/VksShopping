@@ -36,7 +36,26 @@ function addCart(product) {
       return {};
     });
 }
+function changeQuantity(product) {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const requestObj = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      token: token ? token : "",
+    },
+    body: JSON.stringify(product),
+  };
+  return fetch(`${constant.API_URL}/cart/item`, requestObj)
+    .then((res) => res.json())
+    .then((json) => json)
+    .catch((err) => {
+      console.log(err);
+      return {};
+    });
+}
 export const cartService = {
   getCartInfo,
   addCart,
+  changeQuantity,
 };

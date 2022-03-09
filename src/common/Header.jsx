@@ -90,6 +90,13 @@ export default function Header() {
   function handleLogout() {
     dispatch(userActions.logout());
   }
+  function handleCartbtn() {
+    if (token) {
+      window.location.href = window.location.origin + "/cart";
+    } else {
+      dispatch(appActions.changePopup(constant.PHONE_POPUP));
+    }
+  }
   return (
     <div className="header-container">
       <div className="top flex">
@@ -111,13 +118,13 @@ export default function Header() {
             <i className="fa-solid fa-magnifying-glass"></i>
           </button>
         </div>
-        <a href="/cart" className="cart flex">
+        <div className="cart flex" onClick={handleCartbtn}>
           <i className="fa-solid fa-cart-shopping"></i>
           <div className="cart-right">
             <div className="number-of-product">{token ? cartInfo.items.length : 0}</div>
             <div className="title">Giỏ hàng</div>
           </div>
-        </a>
+        </div>
       </div>
       <div className="nav-bar flex">
         <div className="nav-bar-left">

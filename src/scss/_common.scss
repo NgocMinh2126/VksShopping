@@ -385,6 +385,7 @@
 }
 .phonecheck-popup,
 .register-popup,
+.select-popup,
 .login-popup {
   .err-msg {
     color: $red-color;
@@ -514,5 +515,62 @@
   }
   input:focus {
     border-bottom: 2px solid $border-gray-color;
+  }
+}
+.select-popup {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  width: 400px;
+  .msg {
+    font-size: 18px;
+    color: $text-color-2;
+    margin-bottom: 10px;
+  }
+  .flex {
+    justify-content: space-around;
+  }
+  button {
+    padding: 10px;
+    font-size: 18px;
+    width: calc(50% - 10px);
+    border: 5px;
+  }
+  .err-msg {
+    color: $text-color;
+  }
+  .complete-btn {
+    background-color: $red-color;
+    color: #fff;
+    border-radius: 3px;
+  }
+  .complete-btn:hover {
+    background-color: #f50c1c;
+  }
+}
+.message-popup {
+  .msg-container {
+    transition: 0.5s;
+    position: relative;
+    width: 300px;
+    height: 70px;
+    .msg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+      height: 70px;
+      width: 300px;
+      position: absolute;
+      top: -500px;
+      transition: 0.8s;
+      visibility: hidden;
+    }
+    .msg.active {
+      top: -100px;
+      visibility: visible;
+    }
   }
 }

@@ -79,6 +79,7 @@ a {
   position: fixed;
   top: 0;
   left: 0;
+  transition: 0.5s;
   z-index: 100;
   width: 100%;
   height: 100%;
@@ -447,6 +448,7 @@ a {
 
 .phonecheck-popup .err-msg,
 .register-popup .err-msg,
+.select-popup .err-msg,
 .login-popup .err-msg {
   color: #ff3945;
   text-align: center;
@@ -553,6 +555,53 @@ a {
     border-bottom: 1px solid #c3c3c3; }
   .login-popup input:focus {
     border-bottom: 2px solid #c3c3c3; }
+
+.select-popup {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  width: 400px; }
+  .select-popup .msg {
+    font-size: 18px;
+    color: #757575;
+    margin-bottom: 10px; }
+  .select-popup .flex {
+    justify-content: space-around; }
+  .select-popup button {
+    padding: 10px;
+    font-size: 18px;
+    width: calc(50% - 10px);
+    border: 5px; }
+  .select-popup .err-msg {
+    color: #360d5e; }
+  .select-popup .complete-btn {
+    background-color: #ff3945;
+    color: #fff;
+    border-radius: 3px; }
+  .select-popup .complete-btn:hover {
+    background-color: #f50c1c; }
+
+.message-popup .msg-container {
+  transition: 0.5s;
+  position: relative;
+  width: 300px;
+  height: 70px; }
+  .message-popup .msg-container .msg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    height: 70px;
+    width: 300px;
+    position: absolute;
+    top: -500px;
+    transition: 0.8s;
+    visibility: hidden; }
+  .message-popup .msg-container .msg.active {
+    top: -100px;
+    visibility: visible; }
 
 .banners {
   overflow: hidden; }
@@ -800,6 +849,7 @@ a {
   .cartitem-container .title:hover {
     text-decoration: underline; }
   .cartitem-container .price {
+    width: 15%;
     color: #ff3945;
     margin-left: 20px;
     font-size: 20px; }

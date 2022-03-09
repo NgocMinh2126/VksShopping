@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { appActions } from "../../../actions/appActions";
 import { cartActions } from "../../../actions/cartActions";
+import { constant } from "../../../constants";
 import { helper } from "../../../helper";
 export default function MainInfo(props) {
   let { _id, name, image, rating, luotdanhgia, sold, priceafter, pricebefore, quantity } = props;
   const dispatch = useDispatch();
-
+  const token = localStorage.getItem("token");
   const [selectnumber, setQuantity] = useState(1);
   function increaseQuantity() {
     if (selectnumber <= quantity) {
@@ -18,6 +20,10 @@ export default function MainInfo(props) {
     }
   }
   function handleAddCart() {
+    if (!token) {
+      dispatch(appActions.changePopup(constant.PHONE_POPUP));
+      return;
+    }
     let product = {
       quantity: selectnumber,
       product_id: _id
