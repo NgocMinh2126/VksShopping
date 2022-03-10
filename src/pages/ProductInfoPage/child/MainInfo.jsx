@@ -8,15 +8,15 @@ export default function MainInfo(props) {
   let { _id, name, image, rating, luotdanhgia, sold, priceafter, pricebefore, quantity } = props;
   const dispatch = useDispatch();
   const token = localStorage.getItem("token");
-  const [selectnumber, setQuantity] = useState(1);
+  const [selectnumber, setSelectNumber] = useState(1);
   function increaseQuantity() {
     if (selectnumber <= quantity) {
-      return setQuantity(selectnumber + 1);
+      return setSelectNumber(selectnumber + 1);
     }
   }
   function descreaseQuantity() {
     if (selectnumber > 1) {
-      return setQuantity(selectnumber - 1);
+      return setSelectNumber(selectnumber - 1);
     }
   }
   function handleAddCart() {
@@ -29,6 +29,23 @@ export default function MainInfo(props) {
       product_id: _id
     }
     dispatch(cartActions.addCart(product));
+  }
+  function handleInputChange(e) {
+    if (e.target.value) {
+      let number = parseInt(e.target.value);
+      if (number > quantity) {
+        setSelectNumber(quantity);
+        return;
+      }
+      setSelectNumber(number)
+    } else {
+      setSelectNumber(e.target.value);
+    }
+  }
+  function checkValue() {
+    if (!selectnumber || selectnumber === 0) {
+      setSelectNumber(1);
+    }
   }
   return (
     <div>
@@ -69,7 +86,11 @@ export default function MainInfo(props) {
               ) : (
                 <button onClick={descreaseQuantity}>-</button>
               )}
-              <input type="number" value={selectnumber} />
+              <input
+                onChange={handleInputChange}
+                onBlur={checkValue}
+                type="number"
+                value={selectnumber} />
               {selectnumber >= quantity ? (
                 <button onClick={increaseQuantity} disabled={true}>+</button>
               ) : (

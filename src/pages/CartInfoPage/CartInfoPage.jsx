@@ -4,6 +4,9 @@ import Footer from "../../common/Footer";
 import Header from "../../common/Header"
 import CartItem from "./child/CartItem";
 import Popup from "../../common/Popup/Popup"
+import Address from "./child/Address";
+import PaymentMethod from "./child/PaymentMethod";
+import PriceInfo from "./child/PriceInfo";
 export default function CartInfoPage(props) {
   const cartInfo = useSelector(store => store.cart.cartInfo);
   function createCardItem(items, items_in_time) {
@@ -29,8 +32,17 @@ export default function CartInfoPage(props) {
     <React.Fragment>
       <Header />
       <div className="bg">
-        <div className="page" style={{ paddingTop: "10px" }}>
-          {createCardItem(cartInfo.items, cartInfo.items_in_time)}
+        <div className="page" style={{ padding: "20px 0 20px 0" }}>
+          <div className="flex">
+            <div className="cart-item">
+              {createCardItem(cartInfo.items, cartInfo.items_in_time)}
+            </div>
+            <div className="other">
+              <Address />
+              <PaymentMethod />
+              <PriceInfo />
+            </div>
+          </div>
         </div>
         <Popup />
       </div>

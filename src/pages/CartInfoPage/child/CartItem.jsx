@@ -31,7 +31,7 @@ export default function CartItem(props) {
     }
   }
   function handleDeleteProduct() {
-    dispatch(appActions.changePopup(constant.SELECT_POPUP, "", {
+    dispatch(appActions.changePopup(constant.SELECT_POPUP, "Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?", {
       id: items_in_time_id,
       quantity: 0,
       action: function action(data, setErrMsg) {
@@ -50,12 +50,20 @@ export default function CartItem(props) {
           setSelectNumber(number);
           return;
         }
+        if (number >= quantity) {
+          number = quantity;
+        }
         product.quantity = number;
         dispatch(cartActions.changeQuantity(product));
         setSelectNumber(number);
       }
     } else {
-      setSelectNumber(number);
+      setSelectNumber(e.target.value);
+    }
+  }
+  function checkInputValue() {
+    if (!selectNumber || selectNumber === 0) {
+      setSelectNumber(amount);
     }
   }
   return (
@@ -72,6 +80,7 @@ export default function CartItem(props) {
           <button onClick={descreaseQuantity}>-</button> :
           <button onClick={descreaseQuantity} disabled={true}>-</button>}
         <input
+          onBlur={checkInputValue}
           onChange={handleInputChange}
           type="number"
           value={selectNumber} />

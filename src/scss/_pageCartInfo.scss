@@ -1,5 +1,8 @@
+.cart-item {
+  width: 70%;
+}
+//cart Item
 .cartitem-container {
-  margin-top: 10px;
   padding: 10px;
   background-color: #fff;
   border-radius: 5px;
@@ -57,5 +60,90 @@
     background-color: #fff;
     color: $red-color;
     font-size: 20px;
+  }
+}
+//address
+.other {
+  width: calc(30% - 10px);
+  margin-left: 10px;
+  .title {
+    color: $hover-color;
+  }
+}
+.priceinfo-container,
+.address-container,
+.payment-container {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+}
+.address-container {
+  .flex {
+    justify-content: space-between;
+    button {
+      background-color: #fff;
+      text-decoration: underline;
+      font-size: 15px;
+    }
+    button:hover {
+      color: $hover-color;
+    }
+    .name,
+    .phone {
+      color: $text-color;
+      font-weight: 600;
+    }
+  }
+  .address {
+    margin-top: 10px;
+    color: $text-color-2;
+  }
+}
+.payment-container {
+  margin-top: 10px;
+  .title {
+    margin-bottom: 10px;
+  }
+  .flex {
+    align-items: center;
+    margin-bottom: 3px;
+    label {
+      margin-left: 5px;
+      color: $text-color-2;
+    }
+  }
+}
+.priceinfo-container {
+  margin-top: 10px;
+  .flex {
+    justify-content: space-between;
+    margin-bottom: 5px;
+    .title {
+      color: $text-color-2;
+    }
+  }
+  .total {
+    margin-top: 10px;
+    border-top: 1px solid $border-color-2;
+    padding-top: 5px;
+    .title {
+      font-size: 18px;
+    }
+    .price {
+      font-size: 20px;
+      color: $red-color;
+    }
+  }
+  button {
+    padding: 10px;
+    font-size: 20px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: $red-color;
+    color: #fff;
+  }
+  button:hover {
+    background-color: #f50c1c;
   }
 }

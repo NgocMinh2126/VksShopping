@@ -13,7 +13,7 @@ export default function Select(props) {
   return (
     <div className="modal center">
       <div className="select-popup">
-        <div className="msg">Bạn có chắc chắn muốn xóa sản phẩm này khỏi giỏ hàng?</div>
+        <div className="msg">{popup.message}</div>
         <div className="err-msg">{errMsg}</div>
         <div className="flex" style={{ marginTop: "20px" }}>
           <button
