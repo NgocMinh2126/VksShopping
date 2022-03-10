@@ -324,6 +324,7 @@ a {
   overflow: scroll; }
 
 .product-card {
+  display: block;
   margin-left: 10px;
   margin-right: 10px;
   margin-bottom: 20px;
@@ -824,6 +825,11 @@ a {
     .comment-tab .comment .total .more i {
       margin-bottom: 3px; }
 
+.card-container {
+  padding: 5px; }
+  .card-container .product-card {
+    margin: 0; }
+
 .cart-item {
   width: 70%; }
 
@@ -937,7 +943,7 @@ a {
       color: #ff3945; }
   .priceinfo-container button {
     padding: 10px;
-    font-size: 20px;
+    font-size: 18px;
     width: 100%;
     margin-top: 10px;
     border-radius: 5px;
@@ -945,3 +951,23 @@ a {
     color: #fff; }
   .priceinfo-container button:hover {
     background-color: #f50c1c; }
+
+.cartinfo-error .msg {
+  font-family: "Patrick Hand", cursive;
+  font-size: 25px;
+  color: #9d4edd; }
+
+.cartinfo-error img {
+  width: 300px;
+  object-fit: contain; }
+
+.cartinfo-error button {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ff3945;
+  font-size: 20px;
+  color: #fff;
+  border-radius: 5px; }
+
+.cartinfo-error button:hover {
+  background-color: #f50c1c; }

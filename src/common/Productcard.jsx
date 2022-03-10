@@ -2,7 +2,6 @@ import { helper } from "../helper";
 export default function ProductCard(props) {
   let { _id, name, pricebefore, sold, priceafter, image } = props;
 
-
   return (
     <a className="product-card" href={"/product/" + _id}>
       <div className="image">

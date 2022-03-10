@@ -51,10 +51,10 @@ export default function ProductInfoPage(props) {
                 description={Info.data.description}>
               </DetailInfo>
             </div>)}
+          <SimilarProduct></SimilarProduct>
         </div>
       </div>
       <Popup />
-      <SimilarProduct></SimilarProduct>
       <Footer></Footer>
     </React.Fragment>
   );
