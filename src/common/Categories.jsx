@@ -4,15 +4,10 @@ import { categoryActions } from "../actions/categoryActions";
 import Categorycard from "./Categorycard";
 
 export default function Categories() {
-  const dispatch = useDispatch();
 
   const listCate = useSelector(store => store.category.listCate);
 
-  useEffect(() => {
-    if (listCate.status === "LOADING") {
-      dispatch(categoryActions.getCategories());
-    }
-  })
+
   function createCategorycard(data) {
     return data.map((v) => (
       <Categorycard key={v._id} image={v.image} name={v.name} id={v._id}></Categorycard>

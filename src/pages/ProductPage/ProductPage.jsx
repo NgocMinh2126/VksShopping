@@ -10,41 +10,54 @@ import { constant } from "../../constants";
 import { productActions } from "../../actions/productActions";
 import { useSearchParams } from "react-router-dom"
 import Popup from "../../common/Popup/Popup"
+import LoadingPage from "../../common/LoadingPage"
+import { categoryActions } from "../../actions/categoryActions"
 export default function ProductPage() {
   let link = "";
-  const dispacth = useDispatch();
+  const dispatch = useDispatch();
+  const listCate = useSelector(store => store.category.listCate);
   const listProduct = useSelector((store) => store.product.listProduct);
   const [params, setParam] = useSearchParams();
   link = params.toString();
   useEffect(() => {
     if (listProduct.status === constant.LOADING) {
-      dispacth(productActions.getProduct(link));
+      dispatch(productActions.getProduct(link));
     } else console.log(listProduct.data);
+    if (listCate.status === "LOADING") {
+      dispatch(categoryActions.getCategories());
+    }
   });
   return (
     <React.Fragment>
-      <Header></Header>
-      <div className="bg">
-        <div className=" flex page">
-          <div className="flex product-container ">
-            <div className="category">
-              <div className="name">
-                Danh mục sản phẩm
+      {listProduct.data.length === 0 ||
+        listCate.data.length === 0 ? (
+        <LoadingPage />
+      ) : (
+        <div>
+          <Header></Header>
+          <div className="bg">
+            <div className=" flex page">
+              <div className="flex product-container ">
+                <div className="category">
+                  <div className="name">
+                    Danh mục sản phẩm
+                  </div>
+                  <div style={{ height: "300px" }}>
+                    <Categories ></Categories>
+                  </div>
+                </div>
+                <div className="products">
+                  <ListProducts ></ListProducts>
+                  <PageBreak
+                    totalpage={listProduct.total_page}></PageBreak>
+                </div>
               </div>
-              <div style={{ height: "300px" }}>
-                <Categories ></Categories>
-              </div>
-            </div>
-            <div className="products">
-              <ListProducts ></ListProducts>
-              <PageBreak
-                totalpage={listProduct.total_page}></PageBreak>
             </div>
           </div>
+          <Popup />
+          <Footer></Footer>
         </div>
-      </div>
-      <Popup />
-      <Footer></Footer>
+      )}
     </React.Fragment >
   );
 }

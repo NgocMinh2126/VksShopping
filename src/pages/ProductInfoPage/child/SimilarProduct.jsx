@@ -1,5 +1,6 @@
 import Slider from "react-slick";
 import NextButton from "../../../common/NextButton";
+import PreviousButton from "../../../common/PreviousButton";
 import ProductCard from "../../../common/Productcard"
 export default function SimilarProduct(props) {
   let { listSimilar } = props
@@ -8,6 +9,7 @@ export default function SimilarProduct(props) {
     slidesToShow: 5,
     slidesToScroll: 1,
     nextArrow: <NextButton />,
+    prevArrow: <PreviousButton />,
     responsive: [
       {
         breakpoint: 600,
