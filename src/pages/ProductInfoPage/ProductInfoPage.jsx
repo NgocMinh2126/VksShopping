@@ -13,45 +13,52 @@ import { useParams } from "react-router-dom";
 import Popup from "../../common/Popup/Popup";
 export default function ProductInfoPage(props) {
   const dispatch = useDispatch();
-  const Info = useSelector(store => store.product.productInfo);
+  const productInfo = useSelector(store => store.product.productInfo);
   const Rating = useSelector(store => store.product.productRating);
+  const similarProduct = useSelector(store => store.product.similarProduct);
   let param = useParams();
   console.log(param.id);
   useEffect(() => {
-    if (Info.status === constant.LOADING) {
+    if (productInfo.status === constant.LOADING) {
       dispatch(productActions.getProductInfo(param.id));
     }
-    if (Info.status === constant.SUCCESS) {
+    if (productInfo.status === constant.SUCCESS) {
       if (Rating.status === constant.LOADING) {
         dispatch(productActions.getProductRating(param.id));
       }
-      document.title = Info.data.name;
+      if (similarProduct.status === constant.LOADING) {
+        dispatch(productActions.getSimilarProduct(param.id));
+      }
+      document.title = productInfo.data.name;
     }
-  }, [Info]);
+  }, [productInfo]);
   return (
     <React.Fragment>
       <Header></Header>
       <div className="bg" >
-        <div className="page" style={{ paddingTop: "20px" }}>
-          {!Info.data ? (<div></div>) : (
+        <div className="page" style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+          {!productInfo.data ? (<div></div>) : (
             <div>
               <MainInfo
-                _id={Info.data._id}
-                name={Info.data.name}
-                image={Info.data.images}
-                rating={Info.data.rating.stars}
-                luotdanhgia={Info.data.rating.list.length}
-                sold={Info.data.sold}
-                priceafter={Info.data.after_discount_price}
-                pricebefore={Info.data.before_discount_price}
-                quantity={Info.data.quantity}
+                _id={productInfo.data._id}
+                name={productInfo.data.name}
+                image={productInfo.data.images}
+                rating={productInfo.data.rating.stars}
+                luotdanhgia={productInfo.data.rating.list.length}
+                sold={productInfo.data.sold}
+                priceafter={productInfo.data.after_discount_price}
+                pricebefore={productInfo.data.before_discount_price}
+                quantity={productInfo.data.quantity}
               />
               <DetailInfo
-                attributes={Info.data.attributes}
-                description={Info.data.description}>
+                attributes={productInfo.data.attributes}
+                description={productInfo.data.description}>
               </DetailInfo>
+              <SimilarProduct
+                listSimilar={similarProduct.data}>
+              </SimilarProduct>
             </div>)}
-          <SimilarProduct></SimilarProduct>
+
         </div>
       </div>
       <Popup />

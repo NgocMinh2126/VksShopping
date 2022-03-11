@@ -3,12 +3,18 @@ import { constant } from "../constants";
 const initialState = {
   listProduct: {
     status: constant.LOADING,
+    data: [],
   },
   productInfo: {
     status: constant.LOADING,
   },
   productRating: {
     status: constant.LOADING,
+    data: [],
+  },
+  similarProduct: {
+    status: constant.LOADING,
+    data: [],
   },
 };
 export function product(state = initialState, action) {
@@ -64,6 +70,24 @@ export function product(state = initialState, action) {
       return {
         ...state,
         productRating: {
+          status: constant.FAILURE,
+          data: [],
+        },
+      };
+    }
+    case constant.GET_SIMILAR_PRODUCTS_SUCCESS: {
+      return {
+        ...state,
+        similarProduct: {
+          status: constant.SUCCESS,
+          data: action.data,
+        },
+      };
+    }
+    case constant.GET_SIMILAR_PRODUCTS_FAILURE: {
+      return {
+        ...state,
+        similarProduct: {
           status: constant.FAILURE,
           data: [],
         },

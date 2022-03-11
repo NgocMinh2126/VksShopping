@@ -45,8 +45,24 @@ function getProductRating(id) {
     return { type: constant.GET_PRODUCT_REVIEW_FAILURE, code, msg };
   }
 }
+function getSimilarProduct(productid) {
+  return (dispatch) => {
+    productService.getSimilarProduct(productid).then((res) => {
+      if (res.status === constant.SUCCESS) {
+        dispatch(success(res.data));
+      } else dispatch(failure(res.code, res.msg));
+    });
+  };
+  function success(data) {
+    return { type: constant.GET_SIMILAR_PRODUCTS_SUCCESS, data };
+  }
+  function failure(code, msg) {
+    return { type: constant.GET_SIMILAR_PRODUCTS_FAILURE, code, msg };
+  }
+}
 export const productActions = {
   getProduct,
   getProductInfo,
   getProductRating,
+  getSimilarProduct,
 };
