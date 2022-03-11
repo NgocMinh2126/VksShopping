@@ -7,6 +7,9 @@ const initialState = {
     type: constant.NO_POPUP,
     additionalInfo: {},
   },
+  homeInfo: {
+    status: constant.LOADING,
+  },
 };
 export function app(state = initialState, action) {
   switch (action.type) {
@@ -17,6 +20,22 @@ export function app(state = initialState, action) {
           message: action.message,
           type: action.popupType,
           additionalInfo: action.additionalInfo,
+        },
+      };
+    case constant.GET_HOME_SUCCESS:
+      return {
+        ...state,
+        homeInfo: {
+          status: constant.SUCCESS,
+          data: action.data,
+        },
+      };
+    case constant.GET_HOME_FAILURE:
+      return {
+        ...state,
+        homeInfo: {
+          status: constant.FAILURE,
+          data: {},
         },
       };
     default:

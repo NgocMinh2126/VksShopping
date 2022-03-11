@@ -11,6 +11,7 @@ import Footer from "../../common/Footer";
 import SimilarProduct from "./child/SimilarProduct";
 import { useParams } from "react-router-dom";
 import Popup from "../../common/Popup/Popup";
+import LoadingPage from "../../common/LoadingPage";
 export default function ProductInfoPage(props) {
   const dispatch = useDispatch();
   const productInfo = useSelector(store => store.product.productInfo);
@@ -34,35 +35,41 @@ export default function ProductInfoPage(props) {
   }, [productInfo]);
   return (
     <React.Fragment>
-      <Header></Header>
-      <div className="bg" >
-        <div className="page" style={{ paddingTop: "20px", paddingBottom: "20px" }}>
-          {!productInfo.data ? (<div></div>) : (
-            <div>
-              <MainInfo
-                _id={productInfo.data._id}
-                name={productInfo.data.name}
-                image={productInfo.data.images}
-                rating={productInfo.data.rating.stars}
-                luotdanhgia={productInfo.data.rating.list.length}
-                sold={productInfo.data.sold}
-                priceafter={productInfo.data.after_discount_price}
-                pricebefore={productInfo.data.before_discount_price}
-                quantity={productInfo.data.quantity}
-              />
-              <DetailInfo
-                attributes={productInfo.data.attributes}
-                description={productInfo.data.description}>
-              </DetailInfo>
-              <SimilarProduct
-                listSimilar={similarProduct.data}>
-              </SimilarProduct>
-            </div>)}
+      {productInfo.status === constant.LOADING ? (
+        <LoadingPage />
+      ) : (
+        <div>
+          <Header></Header>
+          <div className="bg" >
+            <div className="page" style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+              {!productInfo.data ? (<div></div>) : (
+                <div>
+                  <MainInfo
+                    _id={productInfo.data._id}
+                    name={productInfo.data.name}
+                    image={productInfo.data.images}
+                    rating={productInfo.data.rating.stars}
+                    luotdanhgia={productInfo.data.rating.list.length}
+                    sold={productInfo.data.sold}
+                    priceafter={productInfo.data.after_discount_price}
+                    pricebefore={productInfo.data.before_discount_price}
+                    quantity={productInfo.data.quantity}
+                  />
+                  <DetailInfo
+                    attributes={productInfo.data.attributes}
+                    description={productInfo.data.description}>
+                  </DetailInfo>
+                  <SimilarProduct
+                    listSimilar={similarProduct.data}>
+                  </SimilarProduct>
+                </div>)}
 
+            </div>
+          </div>
+          <Popup />
+          <Footer></Footer>
         </div>
-      </div>
-      <Popup />
-      <Footer></Footer>
+      )}
     </React.Fragment>
   );
 }

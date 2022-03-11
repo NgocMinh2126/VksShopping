@@ -1,18 +1,18 @@
+.category {
+  background-color: #fff;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: fit-content;
+  .name {
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid $border-gray-color;
+    border-bottom: none;
+  }
+}
 .product-container {
   color: $text-color-2;
   font-size: 20px;
-  .category {
-    background-color: #fff;
-    margin-left: 20px;
-    margin-top: 20px;
-    height: fit-content;
-    .name {
-      padding: 10px;
-      border-radius: 3px;
-      border: 1px solid $border-gray-color;
-      border-bottom: none;
-    }
-  }
   .products {
     width: calc(100% - 320px);
     .list-product {

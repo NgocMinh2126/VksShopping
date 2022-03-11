@@ -49,7 +49,7 @@ export default function Login(props) {
       <div className="login-popup" onKeyDown={handleEnterKey}>
         <h3>Nhập mật khẩu</h3>
         <div >Vui lòng nhập mật khẩu của số điện thoại
-          <span> {phone}</span>
+          <span> {userInfo.phone}</span>
         </div>
         <input
           name="password"

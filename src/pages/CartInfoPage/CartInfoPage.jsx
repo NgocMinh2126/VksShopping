@@ -10,6 +10,7 @@ import PriceInfo from "./child/PriceInfo";
 import { appActions } from "../../actions/appActions";
 import { constant } from "../../constants";
 export default function CartInfoPage(props) {
+  const token = localStorage.getItem("token");
   const dispatch = useDispatch();
   const cartInfo = useSelector(store => store.cart.cartInfo);
   function createCardItem(items, items_in_time) {
@@ -39,7 +40,17 @@ export default function CartInfoPage(props) {
       <Header />
       <div className="bg">
         <div className="page" style={{ padding: "20px 0 20px 0" }}>
-          {cartInfo.items.length !== 0 ? (
+          {!token &&
+            (
+              <div style={{ textAlign: "center" }} className="cartinfo-error">
+                <img src="/img/oops.png" alt="" />
+                <div className="msg">
+                  Bạn chưa đăng nhập!! Vui lòng đăng nhập để xem giỏ hàng
+                </div>
+                <button onClick={handleLogin}>Đăng nhập</button>
+              </div>
+            )}
+          {cartInfo.items.length !== 0 && (
             <div className="flex">
               <div className="cart-item">
                 {createCardItem(cartInfo.items, cartInfo.items_in_time)}
@@ -50,13 +61,11 @@ export default function CartInfoPage(props) {
                 <PriceInfo />
               </div>
             </div>
-          ) : (
-            <div style={{ textAlign: "center" }} className="cartinfo-error">
-              <img src="/img/oops.png" alt="" />
-              <div className="msg">
-                Bạn chưa đăng nhập!! Vui lòng đăng nhập để xem giỏ hàng
-              </div>
-              <button onClick={handleLogin}>Đăng nhập</button>
+          )}
+          {token && cartInfo.items.length === 0 && (
+            <div className="empty-cart" style={{ textAlign: "center" }}>
+              <img src="/img/empty_cart.png" alt="" />
+              <div>Bạn chưa có sản phẩm nào trong giỏ hàng</div>
             </div>
           )}
         </div>

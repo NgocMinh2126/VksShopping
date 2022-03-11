@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
 import { appActions } from "../../../actions/appActions";
 import { cartActions } from "../../../actions/cartActions";
 import { constant } from "../../../constants";
 import { helper } from "../../../helper";
+import "react-toastify/dist/ReactToastify.css";
 export default function MainInfo(props) {
   let { _id, name, image, rating, luotdanhgia, sold, priceafter, pricebefore, quantity } = props;
   const dispatch = useDispatch();
@@ -55,6 +57,7 @@ export default function MainInfo(props) {
             <img src={image} alt="" />
           </div>
         </div>
+        <ToastContainer />
         <div className="info">
           <div className="name">{name}</div>
           <div className="flex moreinfo">

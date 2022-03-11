@@ -29,8 +29,8 @@ export default function ProductPage() {
   });
   return (
     <React.Fragment>
-      {listProduct.data.length === 0 ||
-        listCate.data.length === 0 ? (
+      {listProduct.status === constant.LOADING ||
+        listCate.status === constant.LOADING ? (
         <LoadingPage />
       ) : (
         <div>

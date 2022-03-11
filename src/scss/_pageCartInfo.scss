@@ -169,3 +169,15 @@
     background-color: #f50c1c;
   }
 }
+.empty-cart {
+  img {
+    width: 120px;
+    object-fit: contain;
+  }
+  div {
+    font-family: "Patrick Hand", cursive;
+    color: $text-color;
+    font-size: 25px;
+    margin-top: 20px;
+  }
+}

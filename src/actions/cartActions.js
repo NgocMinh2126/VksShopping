@@ -1,6 +1,7 @@
 import { constant } from "../constants";
 import { cartService } from "../services/cartService";
 import { appActions } from "./appActions";
+import { toast } from "react-toastify";
 function getCartInfo() {
   return (dispacth) => {
     cartService.getCartInfo().then((res) => {
@@ -24,6 +25,15 @@ function addCart(product) {
     cartService.addCart(product).then((res) => {
       if (res.status === constant.SUCCESS) {
         dispatch(success(res.data));
+        toast.success(" Đã thêm vào giỏ hàng", {
+          position: "top-right",
+          autoClose: 1500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
       }
     });
   };
