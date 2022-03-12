@@ -5,3 +5,38 @@
     margin-top: 0;
   }
 }
+.home-slider-container {
+  margin-left: 20px;
+  width: calc(100% - 320px);
+  overflow: hidden;
+  .slick-dots {
+    bottom: 10px;
+    z-index: 3;
+    li button:before {
+      font-size: 10px;
+      color: white;
+    }
+  }
+  .image {
+    width: 100%;
+    .img-container {
+      width: 100%;
+      padding-top: 35%;
+    }
+  }
+}
+.product-section {
+  padding: 5px;
+  .product-card {
+    margin: 0;
+  }
+}
+.product-section-container {
+  .title {
+    margin: 0 0 10px 10px;
+  }
+}
+.hot-product {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

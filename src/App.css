@@ -1025,3 +1025,31 @@ a {
   font-size: 20px;
   color: #757575;
   margin-top: 0; }
+
+.home-slider-container {
+  margin-left: 20px;
+  width: calc(100% - 320px);
+  overflow: hidden; }
+  .home-slider-container .slick-dots {
+    bottom: 10px;
+    z-index: 3; }
+    .home-slider-container .slick-dots li button:before {
+      font-size: 10px;
+      color: white; }
+  .home-slider-container .image {
+    width: 100%; }
+    .home-slider-container .image .img-container {
+      width: 100%;
+      padding-top: 35%; }
+
+.product-section {
+  padding: 5px; }
+  .product-section .product-card {
+    margin: 0; }
+
+.product-section-container .title {
+  margin: 0 0 10px 10px; }
+
+.hot-product {
+  margin-top: 20px;
+  margin-bottom: 20px; }

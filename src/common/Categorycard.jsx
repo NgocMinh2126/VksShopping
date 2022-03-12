@@ -5,7 +5,7 @@ export default function Categorycard(props) {
   const [params, setParam] = useSearchParams();
   let queryObj = queryString.parse(params.toString());
   let obj = { ...queryObj, categories: id, page: 1 }
-  let href = window.location.origin + window.location.pathname + "?" + queryString.stringify(obj);
+  let href = window.location.origin + "/product?" + queryString.stringify(obj);
   return (
     <a href={href} className="categorycard-container flex">
       <img src={image} alt="" />

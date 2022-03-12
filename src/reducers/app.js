@@ -35,7 +35,7 @@ export function app(state = initialState, action) {
         ...state,
         homeInfo: {
           status: constant.FAILURE,
-          data: {},
+          message: action.msg,
         },
       };
     default:

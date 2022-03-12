@@ -38,7 +38,7 @@ export default function SimilarProduct(props) {
     ]
   }
   function createProductCard(data) {
-    return data.map((v, i) => (
+    return data.map((v) => (
       <div className="card-container" key={v._id}>
         <ProductCard
           key={v._id}
