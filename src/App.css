@@ -597,11 +597,11 @@ a {
     height: 70px;
     width: 300px;
     position: absolute;
-    top: -500px;
+    top: -400px;
     transition: 0.8s;
     visibility: hidden; }
   .message-popup .msg-container .msg.active {
-    top: -100px;
+    top: 50px;
     visibility: visible; }
 
 .slide-next-btn,

@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { userActions } from "../../../actions/userActions.";
+import { userActions } from "../../../actions/userActions";
 import { appActions } from "../../../actions/appActions";
 import { constant } from "../../../constants";
 

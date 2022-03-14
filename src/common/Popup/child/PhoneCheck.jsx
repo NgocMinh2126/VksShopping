@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useState } from "react"
-import { userActions } from "../../../actions/userActions.";
+import { userActions } from "../../../actions/userActions";
 export default function PhoneCheck(props) {
   let { closePopup } = props;
   const dispatch = useDispatch();

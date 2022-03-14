@@ -2,18 +2,23 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { appActions } from "../actions/appActions";
 import { cartActions } from "../actions/cartActions";
-import { userActions } from "../actions/userActions.";
+import { userActions } from "../actions/userActions";
+import { categoryActions } from "../actions/categoryActions";
 import { constant } from "../constants";
 import Categories from "./Categories";
 export default function Header() {
   const token = useSelector(store => store.user.token);
   const userInfo = useSelector(store => store.user.userInfo);
   const cartInfo = useSelector(store => store.cart.cartInfo);
+  const listCate = useSelector(store => store.category.listCate);
   const [dropdownActive, setDropdownActive] = useState("");
   const dispatch = useDispatch();
   useEffect(() => {
     if (token && cartInfo.status === constant.LOADING) {
       dispatch(cartActions.getCartInfo());
+    }
+    if (listCate.status === constant.LOADING) {
+      dispatch(categoryActions.getCategories());
     }
   })
   function handleLogin() {
@@ -37,11 +42,15 @@ export default function Header() {
                 "dropdown-menu menu"}>
               <h3>{userInfo.name}</h3>
               <ul>
-                <li className="flex">
+                <li
+                  onClick={handleMessagePopup}
+                  className="flex">
                   <i className="fa-solid fa-heart"></i>
                   Sản phẩm yêu thích
                 </li>
-                <li className="flex">
+                <li
+                  onClick={handleMessagePopup}
+                  className="flex">
                   <i className="fa-solid fa-arrows-rotate"></i>
                   Cập nhật thông tin
                 </li>
@@ -89,6 +98,9 @@ export default function Header() {
   }
   function handleLogout() {
     dispatch(userActions.logout());
+  }
+  function handleMessagePopup() {
+    dispatch(appActions.changePopup(constant.MESSAGE_POPUP, "Chức năng chưa sẽ được phát triển trong thời gian tới"))
   }
   function handleCartbtn() {
     if (token) {

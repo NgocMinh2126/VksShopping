@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux";
 import { constant } from "../../../constants";
-import { userActions } from "../../../actions/userActions.";
+import { userActions } from "../../../actions/userActions";
 import { useSelector } from "react-redux";
 import { appActions } from "../../../actions/appActions";
 export default function Register(props) {

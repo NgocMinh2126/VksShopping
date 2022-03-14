@@ -12,7 +12,7 @@ import SimilarProduct from "./child/SimilarProduct";
 import { useParams } from "react-router-dom";
 import Popup from "../../common/Popup/Popup";
 import LoadingPage from "../../common/LoadingPage";
-export default function ProductInfoPage(props) {
+export default function ProductInfoPage() {
   const dispatch = useDispatch();
   const productInfo = useSelector(store => store.product.productInfo);
   const Rating = useSelector(store => store.product.productRating);
