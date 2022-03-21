@@ -1,7 +1,7 @@
 import Slider from "react-slick/lib/slider";
 import NextButton from "../../../common/NextButton";
 import PreviousButton from "../../../common/PreviousButton";
-import ProductCard from "../../../common/Productcard"
+import ProductCard from "../../../common/Productcard";
 export default function ProductSection(props) {
   let { title, listProduct } = props;
   var setting = {

@@ -17,7 +17,7 @@ export default function ProductPage() {
   const dispatch = useDispatch();
   const listCate = useSelector(store => store.category.listCate);
   const listProduct = useSelector((store) => store.product.listProduct);
-  const [params, setParam] = useSearchParams();
+  const [params] = useSearchParams();
   link = params.toString();
   useEffect(() => {
     if (listProduct.status === constant.LOADING) {
